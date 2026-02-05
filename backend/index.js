@@ -22,10 +22,12 @@ dotenv.config({ path: envPath });
 
 
 /* -------------------- Environment Debug -------------------- */
+process.env.JWT_SECRET = process.env.JWT_SECRET || "tathagat_secret_key_2024_dev";
+const mongoUri = process.env.MONGO_URI || "";
 console.log("🔍 Environment Debug:");
 console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
-console.log("MONGO_URI length:", process.env.MONGO_URI ? process.env.MONGO_URI.length : 0);
+console.log("MONGO_URI exists:", !!mongoUri);
+console.log("MONGO_URI length:", mongoUri.length);
 console.log("🔑 RAZORPAY_KEY_ID exists:", !!process.env.RAZORPAY_KEY_ID);
 console.log("🔑 RAZORPAY_KEY_ID value:", process.env.RAZORPAY_KEY_ID ? process.env.RAZORPAY_KEY_ID.substring(0, 15) + "..." : "NOT SET");
 console.log("🔑 RAZORPAY_KEY_SECRET exists:", !!process.env.RAZORPAY_KEY_SECRET);
@@ -47,7 +49,11 @@ const bcrypt = require("bcryptjs");
 
 const createSuperAdminIfNotExists = async () => {
   try {
-    const count = await Admin.countDocuments();
+    if (mongoose.connection.readyState !== 1) {
+      console.log("⚠️ Skipping Super Admin check: DB not connected");
+      return;
+    }
+    const count = await Admin.countDocuments().maxTimeMS(2000);
     if (count > 0) {
       console.log("👤 Admin already exists, skipping auto-create");
       return;
@@ -821,7 +827,7 @@ safeUse("/api/success-stories", "./routes/successStoryRoutes");
 
 safeUse("/api/admin/billing-settings", "./routes/billingSettingsRoutes");
 safeUse("/api/invoices", "./routes/invoiceRoutes");
-// safeUse("/api/admin", "./routes/AdminRoute");
+safeUse("/api/admin-auth", "./routes/AdminRoute");
 safeUse("/api/admin/batches", "./routes/batchesAdmin");
 
 safeUse("/api/admin/bulk-upload", "./routes/bulkUpload");
@@ -860,7 +866,7 @@ safeUse("/api/payments", "./routes/payments");
 safeUse("/api/pay", "./routes/payments");
 safeUse("/api/practice-tests", "./routes/practiceTestRoutes");
 safeUse("/api", "./routes/nextStep");
-safeUse("/api/admin", "./routes/batchesAdmin");
+// safeUse("/api/admin", "./routes/batchesAdmin");
 safeUse("/api/admin/academics", "./routes/adminAcademics");
 safeUse("/api/admin/iim-colleges", "./routes/iimCollegeRoutes");
 safeUse("/api/iim-predictor", "./routes/iimPredictorEvaluate");
@@ -875,6 +881,7 @@ safeUse("/api/mock-test-feedback", "./routes/mockTestFeedbackRoutes");
 safeUse("/api/gallery", "./routes/galleryRoutes");
 safeUse("/api/admin/roles", "./routes/roleRoutes");
 safeUse("/api/admin/admin-users", "./routes/adminUserRoutes");
+safeUse("/api/admin", "./routes/AdminRoute");
 
 /* -------------------- Production Static -------------------- */
 if (process.env.NODE_ENV === "production") {

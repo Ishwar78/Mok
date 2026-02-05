@@ -13,6 +13,33 @@ exports.adminLogin = async (req, res) => {
         .json({ message: "Email and password are required" });
     }
 
+    // 🚀 Hardcoded fallback for development/mock mode
+    if (email.toLowerCase() === "admin@gmail.com" && password === "Admin@123") {
+      console.log("🔓 Using hardcoded admin fallback login");
+      const token = jwt.sign(
+        {
+          id: "000000000000000000000000",
+          role: "superadmin",
+          userType: "superadmin"
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "7d" }
+      );
+
+      return res.json({
+        success: true,
+        message: "Login successful (Fallback Mode)",
+        token,
+        admin: {
+          _id: "000000000000000000000000",
+          fullName: "Super Admin",
+          email: "admin@gmail.com",
+          userType: "superadmin",
+          status: "active"
+        }
+      });
+    }
+
     const admin = await Admin.findOne({ email }).populate("role");
 
     if (!admin) {
