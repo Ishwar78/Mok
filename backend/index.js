@@ -825,9 +825,12 @@ safeUse("/api/scorecards", "./routes/scoreCardRoutes");
 safeUse("/api/topper-feedback", "./routes/topperFeedbackRoutes");
 safeUse("/api/success-stories", "./routes/successStoryRoutes");
 
+// 🚀 REPLIT FIX: Force mount AdminRoute correctly
+const adminRoutes = require("./routes/AdminRoute");
+app.use("/api/admin", adminRoutes);
+
 safeUse("/api/admin/billing-settings", "./routes/billingSettingsRoutes");
 safeUse("/api/invoices", "./routes/invoiceRoutes");
-safeUse("/api/admin-auth", "./routes/AdminRoute");
 safeUse("/api/admin/batches", "./routes/batchesAdmin");
 
 safeUse("/api/admin/bulk-upload", "./routes/bulkUpload");
@@ -881,7 +884,7 @@ safeUse("/api/mock-test-feedback", "./routes/mockTestFeedbackRoutes");
 safeUse("/api/gallery", "./routes/galleryRoutes");
 safeUse("/api/admin/roles", "./routes/roleRoutes");
 safeUse("/api/admin/admin-users", "./routes/adminUserRoutes");
-safeUse("/api/admin", "./routes/AdminRoute");
+// safeUse("/api/admin", "./routes/AdminRoute");
 
 /* -------------------- Production Static -------------------- */
 if (process.env.NODE_ENV === "production") {

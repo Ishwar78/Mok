@@ -9,25 +9,33 @@ const adminUserController = require("../controllers/adminUserController");
 router.post("/login", adminUserController.adminLogin);
 
 /* ================== ROLE ROUTES ================== */
-router.post("/roles", roleController.createRole);
-router.get("/roles", roleController.getRoles);
-router.put("/roles/:id", roleController.updateRole);
-router.delete("/roles/:id", roleController.deleteRole);
+if (roleController && roleController.createRole) {
+  router.post("/roles", roleController.createRole);
+  router.get("/roles", roleController.getRoles);
+  if (roleController.updateRole) router.put("/roles/:id", roleController.updateRole);
+  router.delete("/roles/:id", roleController.deleteRole);
+}
 
 /* ================== ADMIN USER ROUTES ================== */
-router.post("/admin-users", adminUserController.createAdminUser);
-router.get("/admin-users", adminUserController.getAdminUsers);
-router.put("/admin-users/:id", adminUserController.updateAdminUser);
-router.delete("/admin-users/:id", adminUserController.deleteAdminUser);
+if (adminUserController && adminUserController.createAdminUser) {
+  router.post("/admin-users", adminUserController.createAdminUser);
+  router.get("/admin-users", adminUserController.getAdminUsers);
+  if (adminUserController.updateAdminUser) router.put("/admin-users/:id", adminUserController.updateAdminUser);
+  if (adminUserController.deleteAdminUser) router.delete("/admin-users/:id", adminUserController.deleteAdminUser);
 
-router.put(
-  "/admin-users/:id/assign-role",
-  adminUserController.assignRole
-);
+  if (adminUserController.assignRole) {
+    router.put(
+      "/admin-users/:id/assign-role",
+      adminUserController.assignRole
+    );
+  }
 
-router.put(
-  "/admin-users/:id/toggle-status",
-  adminUserController.toggleStatus
-);
+  if (adminUserController.toggleStatus) {
+    router.put(
+      "/admin-users/:id/toggle-status",
+      adminUserController.toggleStatus
+    );
+  }
+}
 
 module.exports = router;
