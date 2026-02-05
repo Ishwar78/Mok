@@ -1,0 +1,87 @@
+Course Card (Gradient – CAT 2026 Classic)
+
+Bullets list mobile pe clean show ho (line breaks proper), text cut na ho.
+
+Chips (Videos / Mock Tests / Practice Tests) stacked ya 2-column grid me aa jaye.
+
+Card ke andar left padding + readable line-height set karo.
+
+Bottom tabs/labels (Recorded classes/Mock tests/full course content) centered + clean.
+
+Acceptance: 320px par bhi bullets + chips fully visible, no overlap.
+
+2) Live Classes Page
+
+Upcoming/Past/Refresh controls mobile me wrap ya equal width tabs bane.
+
+“No Upcoming Classes” empty state card center, proper padding, icon size balanced.
+
+“Back to Courses” button full width on mobile (or max width with center align).
+
+Acceptance: buttons ek line me na fit ho to clean wrap, spacing consistent.
+
+3) Analysis & Reports
+
+Stats cards (4 cards) mobile par 2x2 grid me convert karo (ya horizontal scroll avoid).
+
+Numbers (e.g., 4636 MIN) mobile me wrap/scale properly (no cut).
+
+Chart container responsive: width 100%, height mobile friendly (min height 220–260px).
+
+Acceptance: Stats readable, chart not cropped.
+
+4) Mock Tests Page
+
+Left categories + right panel desktop style hai; mobile par:
+
+Categories ko top horizontal pills/accordion me change karo (same design feel),
+
+Content cards full width below.
+
+“Paper Wise / Topic Wise” cards mobile me stacked, equal padding, consistent alignment.
+
+Acceptance: sidebar feel mobile me clean ho, user easy switch kar sake.
+
+5) Welcome Dashboard
+
+“Your Next Step” card me chips (“Course T”, “valid till Invalid Date”) mobile me wrap.
+
+Big stat cards (Available Courses, Completion Rate) mobile me full width and centered icons.
+
+Titles ka spacing: “Welcome Back, Sharma!” + subtitle not cramped.
+
+Acceptance: cards professional spacing, no weird empty gaps.
+
+6) Ask a Question Modal (Most important)
+
+Modal mobile me max-height: 90vh and internal scroll only.
+
+Background page scroll lock when modal open.
+
+Inputs full width, labels proper spacing.
+
+Close (X) always visible (sticky in modal header).
+
+Character counter, dropdown, textarea all visible without breaking.
+
+Acceptance: 320px par modal usable, no content hidden behind viewport.
+
+✅ Constraints (Strict)
+
+Existing theme/design change nahi karna: same colors/gradients/icons/components.
+
+Only responsive CSS/layout improve karni hai: flex/grid, spacing, font sizes, wrapping, breakpoints.
+
+No new redesign; bas professional polish + mobile usability.
+
+✅ Testing / Output Required
+
+Test widths: 320, 360, 375, 414, 768
+
+Ensure: no horizontal scroll, no overlap, no cut text, buttons tappable.
+
+Provide final changes as:
+
+Which components/pages updated
+
+What responsive rules added
