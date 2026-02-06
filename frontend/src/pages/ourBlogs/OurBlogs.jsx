@@ -104,7 +104,7 @@ const OurBlogs = () => {
       <section className="our-blog-section">
         <div className="overlay"></div>
         <div className="blog-contenting">
-          <h1 className="blog-ti">Dive Deeper Into TathaGat</h1>
+          <h1 className="blog-ti">Dive Deeper Into WebMok</h1>
           <p>
             Stay updated with powerful tips, real stories, and expert advice on
             preparation, motivation and results. Explore articles designed to help
@@ -155,7 +155,7 @@ const OurBlogs = () => {
                 <div className="author">
                   <LazyImage src={ourBlogThree} alt="TG" className="author-logo" />
                   <div>
-                    <p className="author-name">By {featuredBlog.authorName || "TathaGat Faculty"}</p>
+                    <p className="author-name">By {featuredBlog.authorName || "WebMok Faculty"}</p>
                     <p className="author-date">Published: {formatDate(featuredBlog.createdAt)}</p>
                   </div>
                 </div>
@@ -218,7 +218,7 @@ const OurBlogs = () => {
         <div className="ts-blog-team-left">
           <h2 className="ts-blog-team-heading">
             Don't Just Dream It. Crack It <br />
-            with TathaGat!
+            with WebMok!
           </h2>
           <button
             className="ts-blog-contact-btn"

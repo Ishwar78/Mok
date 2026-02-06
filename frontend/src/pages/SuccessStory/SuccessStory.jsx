@@ -268,18 +268,18 @@ const SuccessStory = () => {
             <h3>Mehak Sharma</h3>
             <h2>From Self-Doubt To IIM Ahmedabad</h2>
             <p className="successStrong">
-              "I still remember the first day I walked into TathaGat — unsure,
+              "I still remember the first day I walked into WebMok — unsure,
               overwhelmed, and full of self-doubt. I had never scored beyond 80
               percentile in any mock test. CAT felt like an impossible dream."
             </p>
             <p className="SuccessP">
-              When Mehak Sharma joined TathaGat's classroom program in April
+              When Mehak Sharma joined WebMok's classroom program in April
               2023, she wasn't a "natural topper." In fact, her background in
               humanities and lack of math confidence made quant a nightmare. But
               what she lacked in confidence, she made up for in consistency.
             </p>
             <p className="SuccessP">
-              At TathaGat, she found what every aspirant craves — mentors who
+              At WebMok, she found what every aspirant craves — mentors who
               saw potential before she could, peer support that felt like
               family, and a systematic plan that made even the toughest concepts
               digestible.
@@ -428,7 +428,7 @@ const SuccessStory = () => {
         <div className="ts-blog-team-left">
           <h2 className="ts-blog-team-heading">
             Don't Just Dream It. Crack It <br />
-            with Tathagat!
+            with WebMok!
           </h2>
           <button className="ts-blog-contact-btn" onClick={() => navigate("/GetInTouch")}>
             Contact Now

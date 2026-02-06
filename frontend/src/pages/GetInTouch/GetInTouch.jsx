@@ -73,7 +73,7 @@ const GetInTouch = () => {
 
   const openWhatsApp = () => {
     const phone = "919205534439";
-    const text = "Hi TathaGat team, I have a query about your courses.";
+    const text = "Hi WebMok team, I have a query about your courses.";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -126,8 +126,8 @@ const GetInTouch = () => {
 
             <div className="tc-section">
               <h4 className="tc-label">Enquire</h4>
-              <p className="tc-text">+91 9205534439</p>
-              <p className="tc-text">info@tathagat.co.in</p>
+              <p className="tc-text">+91 8950329919</p>
+              <p className="tc-text">info@webmok.in</p>
             </div>
 
             <div className="tc-section">
@@ -153,13 +153,13 @@ const GetInTouch = () => {
 
       <div className="map-wrapper">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9967242766124!2d77.22041687528903!3d28.629860275666108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd36ace8b84d%3A0x3315288728be019b!2sTathaGat%20%7C%20Best%20CAT%20Coaching%20%7C%20Delhi%20-%20INDIA!5e0!3m2!1sen!2sin!4v1745999697374!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9967242766124!2d77.22041687528903!3d28.629860275666108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd36ace8b84d%3A0x3315288728be019b!2sWebMok%20%7C%20Best%20CAT%20Coaching%20%7C%20Delhi%20-%20INDIA!5e0!3m2!1sen!2sin!4v1745999697374!5m2!1sen!2sin"
           width="600"
           height="450"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="TathaGat Location"
+          title="WebMok Location"
         ></iframe>
       </div>
 
@@ -182,7 +182,7 @@ const GetInTouch = () => {
           <div className="tc-mentor-card light" style={{ backgroundColor: "rgba(226, 226, 226, 1)" }}>
             <h4>Doubt Sessions</h4>
             <p>
-              TathaGat offers Unlimited 1-to-1 Doubt Sessions, Round-the-Clock Assistance, and
+              WebMok offers Unlimited 1-to-1 Doubt Sessions, Round-the-Clock Assistance, and
               Live Class Doubts resolution, ensuring every student gets instant support, personalized
               guidance, and real-time clarity to strengthen their understanding and boost confidence.
             </p>
@@ -192,7 +192,7 @@ const GetInTouch = () => {
           <div className="tc-mentor-card dark">
             <h3>Personalized study plan of the ENTIRE COURSE</h3>
             <p>
-              At TathaGat, we understand that every student is different – with unique strengths,
+              At WebMok, we understand that every student is different – with unique strengths,
               challenges, and preparation timelines. That’s why we offer a Personalized Study Plan
               tailored to your target exam (CAT, XAT, SNAP, or GMAT), learning pace, and academic background.
             </p>
@@ -213,7 +213,7 @@ const GetInTouch = () => {
           <div className="tc-mentor-card light">
             <h4>24*7 Support</h4>
             <p>
-              TathaGat offers unlimited one-on-one doubt sessions, round-the-clock assistance, ensuring
+              WebMok offers unlimited one-on-one doubt sessions, round-the-clock assistance, ensuring
               no query goes unanswered. Expert mentors provide continuous support, and enhancing
               problem-solving skills for exams.
             </p>

@@ -118,7 +118,7 @@ const CourseDetails = () => {
       number: "01",
       title: "Strong Quant Foundation",
       description:
-        "Tathagat’s expertise in Quantitative Aptitude ensures you're well-prepared for the toughest part of IPMAT — with deep conceptual clarity and smart shortcuts.",
+        "WebMok’s expertise in Quantitative Aptitude ensures you're well-prepared for the toughest part of IPMAT — with deep conceptual clarity and smart shortcuts.",
       image: aboutOne,
       bgColor: "#FBAF17",
     },
@@ -240,7 +240,7 @@ const CourseDetails = () => {
               With over 18 years of experience mentoring aspirants for CAT and other management exams, he
               brings a rare blend of academic strength, progressive thinking, and entrepreneurial vision.
               His uncompromising focus on quality and student outcomes has been instrumental in establishing
-              TathaGat as one of the most trusted names in MBA test prep. Passionate about excellence, he
+             WebMok as one of the most trusted names in MBA test prep. Passionate about excellence, he
               continues to inspire students to aim higher and achieve the best in their careers.
             </p>
             {/* ✅ Navigate to counselling */}
@@ -280,7 +280,7 @@ const CourseDetails = () => {
       </div>
 
       <div id="timeline"  className="tcp-timeline-wrapper">
-        <h1 className="tcp-title">TathaGat Complete Preparation Timeline</h1>
+        <h1 className="tcp-title">WebMok Complete Preparation Timeline</h1>
 
         <p className="tcp-subtitle">Syllabus Completion – 6 Months</p>
         <p className="tcp-description">
@@ -535,13 +535,13 @@ const CourseDetails = () => {
           <div>
             <h4 className="philosophy-subtitle">Why Choose Us</h4>
             <h1 className="philosophy-heading">
-              How TathaGat Can Benefit <br />
+              How WebMok Can Benefit <br />
               you for IPMAT Prep
             </h1>
           </div>
           <div>
             <p className="philosophy-text">
-              Tathagat offers expert faculty, personalized mentoring, structured content, and real-exam level
+              WebMok offers expert faculty, personalized mentoring, structured content, and real-exam level
               mocks — all designed to help serious aspirants crack CAT, GMAT, IPMAT, and more with confidence.
             </p>
             {/* ✅ Learn more button navigation */}
@@ -587,7 +587,7 @@ const CourseDetails = () => {
           <h2>Conversations That Count</h2>
           <p className="tt-convo-sub">Success Stories That Inspire</p>
           <p className="tt-convo-desc">
-            See how determined students, guided by expert mentors at TathaGat, transformed challenges
+            See how determined students, guided by expert mentors at WebMok, transformed challenges
             <br />
             into top scores and B-school admits.
           </p>

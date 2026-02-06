@@ -72,7 +72,7 @@ const Mycourse = () => {
         </div>
         <div className='tsp-llr'>
           <p>
-            At Tathagat, we offer comprehensive and specialized programs designed to help students excel
+            At WebMok, we offer comprehensive and specialized programs designed to help students excel
             in CAT, XAT, SNAP, GMAT, and other management entrance exams. Whether you're a beginner or
             looking for advanced training, we have the perfect program for you!
           </p>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { FaUserEdit } from "react-icons/fa";
-import LOGO from "../../../images/tgLOGO.png"
+import LOGO from "../../../images/webm.png"
 import { FaArrowLeft } from "react-icons/fa";
 import "./ExamSelection.css";
 
@@ -68,7 +68,7 @@ const ExamSelection = () => {
       {/* LEFT SIDE PROFILE */}
         <div className="userdetails-left login-left-panel">
               <div className="login-logo">
-          <img src={LOGO} alt="TathaGat Logo" />
+          <img src={LOGO} alt="WebMok Logo" />
           <div className="userdetails-image-wrapper editable" style={{ marginTop: "40px" }}>
           <label htmlFor="profile-pic-input">
             <img

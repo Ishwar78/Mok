@@ -37,10 +37,10 @@ const CURRICULUM = [
   { title: "Concept Classes", content: <>You start moving towards the intermediate level, where you are taught CAT level concepts and need to apply these concepts on CAT level questions, and actual past years’ CAT questions in each topic.</> },
   { title: "Post Class tests & Module Tests", content: <><p>After each class, you shall be writing three tests, which will gauge how much you have understood from that class. If you do not score well here, you will be made to take the concept class again. This ensures that every child is nurtured to score the highest in the actual exam.</p><p>Once a Module is over, you shall be writing the entire module test, which will help you understand your proficiency level in that module. If you feel you need greater proficiency, you will be made to attend the module classes again.</p></> },
   { title: "Assignment Zone", content: <>One of the core element of preparation is discipline and consistency. To ensure these, at TG you are given assignments after each class; failing to submit which, you shall not be allowed to attend the next class. This inculcates work-ethics, diligence, discipline, and focus, ensuring 100% success in your endeavors.</> },
-  { title: "1-1 Doubt Sessions", content: <>TathaGat is the only institute where one-to-one doubt sessions are not only ALWAYS available, but also repeatedly encouraged by the mentors. All mentors are full-time employees, which means they are always available for the students — a unique feature not available at other institutes.</> },
+  { title: "1-1 Doubt Sessions", content: <>WebMok is the only institute where one-to-one doubt sessions are not only ALWAYS available, but also repeatedly encouraged by the mentors. All mentors are full-time employees, which means they are always available for the students — a unique feature not available at other institutes.</> },
   { title: "Sectional Tests", content: <>Once you have mastered the concepts and learnt to apply them, you shall be writing tests of the entire section (full VARC Test, full QA Test etc.). Now you are getting battle-ready for each phase of the war. Here you work out your weaknesses in each section and strategize accordingly with your mentors.</> },
   { title: "CopyCATs (All-India Test Series) & Full Length Tests", content: <>Having martialed your weaponry in all three sections, you now enter the WAR-ZONE! You compete against the entire populace of aspirants in real time, find your relative status, improvise, strategize and polish your weapons for the real D-Day.</> },
-  { title: "Group Exercises and Personal Interview", content: <>Once you have aced your written exams, it is time to step into the micro arena of behavioural testing. TathaGat’s rigorous module on GEPI trains you to be the most confident version of yourself. From presentations to essay writing to personal interviews to group discussions, you gain the managerial acumen of a true professional even before you step into B-School.</> },
+  { title: "Group Exercises and Personal Interview", content: <>Once you have aced your written exams, it is time to step into the micro arena of behavioural testing. WebMok’s rigorous module on GEPI trains you to be the most confident version of yourself. From presentations to essay writing to personal interviews to group discussions, you gain the managerial acumen of a true professional even before you step into B-School.</> },
   { title: "The 100 Percentiler Batch", content: <>Every year, we identify the most outstanding and consistent performers of the student community and train them with the most grilling questions of the CAT industry. This is the last <em>Brahmastra</em> to catch that elusive 100 percentile — a month (mid-Oct to mid-Nov) of personalized sessions with mentors. Only the best make it.</> },
 ];
 
@@ -294,7 +294,7 @@ const CoursePurchase = () => {
             </button>
             
             <a
-              href="https://wa.me/919205534439?text=Hello%20Tathagat%20Team,%20I%20want%20to%20talk%20to%20a%20counsellor."
+              href="https://wa.me/919205534439?text=Hello%20WebMok%20Team,%20I%20want%20to%20talk%20to%20a%20counsellor."
               target="_blank"
               rel="noopener noreferrer"
               className="tgcp-counsellor-btn"

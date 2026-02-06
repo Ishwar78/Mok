@@ -11,27 +11,27 @@ import Chatbox from "../../components/Chat/Chatbox";
 
 const faqs = [
   {
-    question: "What courses does TathaGat offer?",
+    question: "What courses does WebMok offer?",
     answer:
       "We offer preparation courses for CAT, XAT, SNAP, GMAT, CUET, and other management entrance exams. Our programs include concept classes, question-solving sessions, workshops, strategy sessions, and extensive doubt discussions.",
   },
   {
-    question: "What makes TathaGat different from other coaching institutes?",
+    question: "What makes WebMok different from other coaching institutes?",
     answer:
       "Our personalized mentorship, small batch sizes, and AI-driven analytics set us apart.",
   },
   {
-    question: "How can I track my progress at TathaGat?",
+    question: "How can I track my progress at WebMok?",
     answer:
       "We provide performance tracking tools, mock tests, and analytics to help you track your progress.",
   },
   {
-    question: "Does TathaGat offer online classes?",
+    question: "Does WebMok offer online classes?",
     answer:
       "Yes, we offer both online and offline classes with the same rigor and effectiveness.",
   },
   {
-    question: "How do I enroll at TathaGat?",
+    question: "How do I enroll at WebMok?",
     answer:
       "Visit our website or contact our counsellors for enrollment assistance.",
   },
@@ -135,7 +135,7 @@ const ImageGallery = () => {
         <div className="tv-background">
           <div className="tv-overlay">
             <div className="tv-left">
-              <h1>TathaGat</h1>
+              <h1>WebMok</h1>
               <h3 className="tvvleft">HEAR FROM</h3>
               <h3 className="tvvleft">THE ACHIEVERS.</h3>
               <h4 className="tvvvleft">See What Our Students Say about Us....</h4>
@@ -238,9 +238,9 @@ const ImageGallery = () => {
 
       <div className="tv-testimonial-wrapper">
         <div className="tv-left-box">
-          <h2>Why Students Trust TathaGat</h2>
+          <h2>Why Students Trust WebMok</h2>
           <p>
-            Since 2007, TathaGat has helped thousands crack exams like CAT, XAT,
+            Since 2007, WebMok has helped thousands crack exams like CAT, XAT,
             GMAT, and SNAP with expert mentors, concept-focused learning, and
             personalized guidance in small batches.
           </p>
@@ -288,7 +288,7 @@ const ImageGallery = () => {
           <h2>Answered Clearly and</h2>
           <h2>Concisely</h2>
           <p>
-            Find answers to common queries about TathaGat's courses, teaching
+            Find answers to common queries about WebMok's courses, teaching
             methods, tests, workshops, mentorship, fees, and more in our FAQs.
           </p>
 

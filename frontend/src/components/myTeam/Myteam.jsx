@@ -80,7 +80,7 @@ const Myteam = () => {
 
           <div className="teacher-right">
             <p className="teacher-subtext">
-              Our team at TathaGat brings unmatched experience and dedication.
+              Our team at WebMok brings unmatched experience and dedication.
               With proven strategies, personal guidance, and passion for
               teaching, we help students excel in CAT and other management
               entrance exams.

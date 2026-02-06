@@ -39,7 +39,7 @@ import review26 from "../../images/Review/Review/9.png";
 import review27 from "../../images/Review/Review/8.png";
 import review28 from "../../images/Review/Review/4 (1).png";
 
-const PLAYLIST_URL = "https://www.youtube.com/@TGTathagat/playlists";
+const PLAYLIST_URL = "https://www.youtube.com/@TGWebMok/playlists";
 
 /* ✅ CAT Reviews: yahan jitni chaho images add/replace kar lo */
 const CAT_REVIEW_IMAGES = [
@@ -55,7 +55,7 @@ const cardDetails = [
   {
     title: "Concept and Practice",
     desc:
-      "At TathaGat, we ensure that students first master concepts before applying them to real CAT, XAT, GMAT, and SNAP questions. This dual-method approach makes them highly prepared for exams.",
+      "At WebMok, we ensure that students first master concepts before applying them to real CAT, XAT, GMAT, and SNAP questions. This dual-method approach makes them highly prepared for exams.",
     type: "accordion",
     accordionList: [
       "Concept Class",
@@ -71,7 +71,7 @@ const cardDetails = [
   {
     title: "Important Note",
     desc:
-      "TathaGat was established in 2007 by Rajat and Kumar with a vision to revolutionize MBA entrance exam preparation. With a student-first approach, TathaGat focuses on concept clarity, rigorous practice, and personalized mentoring to help aspirants achieve 99+ percentiles. Over the years, it has built a reputation for innovative pedagogy, expert faculty, and exceptional success rates, making it the most trusted name in MBA coaching.",
+      "WebMok was established in 2007 by Rajat and Kumar with a vision to revolutionize MBA entrance exam preparation. With a student-first approach, WebMok focuses on concept clarity, rigorous practice, and personalized mentoring to help aspirants achieve 99+ percentiles. Over the years, it has built a reputation for innovative pedagogy, expert faculty, and exceptional success rates, making it the most trusted name in MBA coaching.",
     styleClass: "card-style-2",
     type: "aboutUs",
     buttonText: "About Us",
@@ -79,7 +79,7 @@ const cardDetails = [
   {
     title: "Doubt Sessions",
     desc:
-      "TathaGat offers Unlimited 1-to-1 Doubt Sessions, Round-the-Clock Assistance, and Live Class Doubts resolution, ensuring every student gets instant support, personalized guidance, and real-time clarity to strengthen their understanding and boost confidence.",
+      "WebMok offers Unlimited 1-to-1 Doubt Sessions, Round-the-Clock Assistance, and Live Class Doubts resolution, ensuring every student gets instant support, personalized guidance, and real-time clarity to strengthen their understanding and boost confidence.",
     type: "review",
     reviewImg: doubt,
     styleClass: "card-style-3",
@@ -87,7 +87,7 @@ const cardDetails = [
   {
     title: "24*7 Support",
     desc:
-      "TathaGat offers unlimited one-on-one doubt sessions, live class doubt resolution, and round-the-clock assistance, ensuring no query goes unanswered. Expert mentors provide continuous support, boosting confidence and enhancing problem-solving skills for exams.",
+      "WebMok offers unlimited one-on-one doubt sessions, live class doubt resolution, and round-the-clock assistance, ensuring no query goes unanswered. Expert mentors provide continuous support, boosting confidence and enhancing problem-solving skills for exams.",
     type: "button",
     buttonText: "Call Now",
     styleClass: "card-style-4",
@@ -95,7 +95,7 @@ const cardDetails = [
   {
     title: "Workshops",
     desc:
-      "TathaGat's 8–10 hour workshops, pioneered in 2007, tackle challenging CAT/XAT/SNAP/GMAT questions, giving students a competitive edge and eliminating exam fear through rigorous practice on past exam questions.",
+      "WebMok's 8–10 hour workshops, pioneered in 2007, tackle challenging CAT/XAT/SNAP/GMAT questions, giving students a competitive edge and eliminating exam fear through rigorous practice on past exam questions.",
     type: "textButton",
     buttonText: "View More",
     styleClass: "card-style-5",
@@ -103,13 +103,13 @@ const cardDetails = [
   {
     title: "Recorded Live Lectures",
     desc:
-      "TathaGat provides recorded lectures for the entire course, allowing students unlimited access for revision. They can fatch these recordings anytime, as many times as needed, ensuring complete concept clarity.",
+      "WebMok provides recorded lectures for the entire course, allowing students unlimited access for revision. They can fatch these recordings anytime, as many times as needed, ensuring complete concept clarity.",
     styleClass: "card-style-6",
   },
   {
     title: "Topic Wise Analysis",
     desc:
-      "TathaGat provides detailed topic-wise analysis for every test, helping students identify strengths and weaknesses.",
+      "WebMok provides detailed topic-wise analysis for every test, helping students identify strengths and weaknesses.",
     img: topicWise,
     buttonText: "Expand ",
     styleClass: "card-style-7",
@@ -117,13 +117,13 @@ const cardDetails = [
   {
     title: "Tests",
     desc:
-      "TathaGat offers 1,000+ AI-based tests, including PCTs, Topic Tests, Sectional, Full-Length, and CopyCATs. These tests provide detailed performance analysis, helping students track mistakes, growth patterns, strengths, and weaknesses, ensuring optimized strategies for CAT, XAT, NMAT, SNAP, and other exams.",
+      "WebMok offers 1,000+ AI-based tests, including PCTs, Topic Tests, Sectional, Full-Length, and CopyCATs. These tests provide detailed performance analysis, helping students track mistakes, growth patterns, strengths, and weaknesses, ensuring optimized strategies for CAT, XAT, NMAT, SNAP, and other exams.",
     styleClass: "card-style-8",
   },
   {
     title: "FREE YouTube Lectures",
     desc:
-      "TathaGat offers extensive free YouTube lectures for CAT and OMETs, covering FAQs, exam updates, and PYQ analyses. These lectures help students revise, practice, and stay updated. Alongside recorded course lectures, they provide accessible, high-quality learning anytime, ensuring students are always prepared.",
+      "WebMok offers extensive free YouTube lectures for CAT and OMETs, covering FAQs, exam updates, and PYQ analyses. These lectures help students revise, practice, and stay updated. Alongside recorded course lectures, they provide accessible, high-quality learning anytime, ensuring students are always prepared.",
     buttonText: "Watch Now",
     styleClass: "card-style-9",
   },
@@ -227,10 +227,10 @@ const WhySection = () => {
         <div className="wt-final-layout">
           {/* Left Static Side */}
           <div className="wt-left-static">
-            <p className="wt-label">WHY TathaGat?</p>
+            <p className="wt-label">WHY WebMok?</p>
             <h2 className="wt-heading">Because We Make Success Inevitable!</h2>
             <p className="wt-subtext">
-              TathaGat is committed to your success in competitive exams,
+              WebMok is committed to your success in competitive exams,
               whether it's CAT, XAT, SNAP, GMAT, or CUET. Our unique teaching
               methodology ensures that students grasp concepts from the ground
               up, with a focus on application-based learning. We offer

@@ -2,13 +2,25 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import "./AdminProfile.css";
-import { FaUser, FaEnvelope, FaPhone, FaCalendarAlt, FaCamera, FaLock, FaEdit, FaSave, FaTimes, FaShieldAlt, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaCalendarAlt,
+  FaCamera,
+  FaLock,
+  FaEdit,
+  FaSave,
+  FaTimes,
+  FaShieldAlt,
+  FaSignOutAlt,
+} from "react-icons/fa";
 
 const AdminProfile = () => {
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
-  const [editData, setEditData] = useState({ name: '', phone: '', email: '' });
+  const [editData, setEditData] = useState({ name: "", phone: "", email: "" });
   const [changeMode, setChangeMode] = useState(false);
   const [passwords, setPasswords] = useState({
     currentPassword: "",
@@ -20,6 +32,7 @@ const AdminProfile = () => {
   const [message, setMessage] = useState(null);
   const fileInputRef = useRef(null);
 
+  /* ================= FETCH ADMIN ================= */
   const fetchAdmin = async () => {
     const token = localStorage.getItem("adminToken");
     try {
@@ -28,12 +41,12 @@ const AdminProfile = () => {
       });
       setAdmin(res.data.admin);
       setEditData({
-        name: res.data.admin?.name || '',
-        phone: res.data.admin?.phone || '',
-        email: res.data.admin?.email || ''
+        name: res.data.admin?.name || "",
+        phone: res.data.admin?.phone || "",
+        email: res.data.admin?.email || "",
       });
     } catch (err) {
-      console.error("Failed to fetch admin profile", err);
+      setMessage({ type: "error", text: "Failed to load profile" });
     } finally {
       setLoading(false);
     }
@@ -43,12 +56,13 @@ const AdminProfile = () => {
     fetchAdmin();
   }, []);
 
+  /* ================= HANDLERS ================= */
   const handleEditToggle = () => {
-    if (editMode) {
+    if (editMode && admin) {
       setEditData({
-        name: admin?.name || '',
-        phone: admin?.phone || '',
-        email: admin?.email || ''
+        name: admin.name || "",
+        phone: admin.phone || "",
+        email: admin.email || "",
       });
     }
     setEditMode(!editMode);
@@ -61,17 +75,16 @@ const AdminProfile = () => {
 
   const handleProfileUpdate = async () => {
     setSaving(true);
-    setMessage(null);
     const token = localStorage.getItem("adminToken");
     try {
       const res = await axios.put("/api/admin/profile", editData, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
       setAdmin(res.data.admin);
       setEditMode(false);
-      setMessage({ type: "success", text: "Profile updated successfully!" });
-    } catch (err) {
-      setMessage({ type: "error", text: err.response?.data?.message || "Failed to update profile" });
+      setMessage({ type: "success", text: "Profile updated successfully" });
+    } catch {
+      setMessage({ type: "error", text: "Failed to update profile" });
     } finally {
       setSaving(false);
     }
@@ -82,48 +95,39 @@ const AdminProfile = () => {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append('profilePic', file);
+    formData.append("profilePic", file);
 
     setUploading(true);
     const token = localStorage.getItem("adminToken");
     try {
       const res = await axios.post("/api/admin/upload-profile", formData, {
-        headers: { 
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data'
-        }
+        headers: { Authorization: `Bearer ${token}` },
       });
-      setAdmin(prev => ({ ...prev, profilePic: res.data.profilePic }));
-      setMessage({ type: "success", text: "Profile picture updated!" });
-    } catch (err) {
-      setMessage({ type: "error", text: err.response?.data?.message || "Failed to upload picture" });
+      setAdmin((prev) => ({ ...prev, profilePic: res.data.profilePic }));
+      setMessage({ type: "success", text: "Profile picture updated" });
+    } catch {
+      setMessage({ type: "error", text: "Failed to upload picture" });
     } finally {
       setUploading(false);
     }
   };
 
-  const handlePasswordInput = (e) => {
-    setPasswords({ ...passwords, [e.target.name]: e.target.value });
-  };
-
   const handlePasswordChange = async () => {
     if (passwords.newPassword !== passwords.confirmPassword) {
-      setMessage({ type: "error", text: "New passwords do not match" });
+      setMessage({ type: "error", text: "Passwords do not match" });
       return;
     }
-    
+
     setSaving(true);
-    setMessage(null);
     const token = localStorage.getItem("adminToken");
     try {
       const res = await axios.put("/api/admin/change-password", passwords, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
       setMessage({ type: "success", text: res.data.message });
-      setPasswords({ currentPassword: "", newPassword: "", confirmPassword: "" });
       setChangeMode(false);
-    } catch (err) {
-      setMessage({ type: "error", text: err.response?.data?.message || "Failed to change password" });
+    } catch {
+      setMessage({ type: "error", text: "Failed to change password" });
     } finally {
       setSaving(false);
     }
@@ -134,228 +138,85 @@ const AdminProfile = () => {
     window.location.href = "/admin/login";
   };
 
-  const formatDate = (dateStr) => {
-    if (!dateStr) return 'N/A';
-    return new Date(dateStr).toLocaleDateString('en-IN', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
-  const getInitials = (name) => {
-    if (!name) return 'AD';
-    return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-  };
-
   if (loading) {
     return (
       <AdminLayout>
-        <div className="admin-profile-loading">
-          <div className="loading-spinner"></div>
-          <p>Loading profile...</p>
-        </div>
+        <p style={{ padding: 20 }}>Loading profile...</p>
       </AdminLayout>
     );
   }
 
+  /* ================= UI ================= */
   return (
     <AdminLayout>
       <div className="admin-profile-container">
-        <div className="profile-header">
-          <h1><FaShieldAlt /> Admin Profile</h1>
-          <p>Manage your account settings and preferences</p>
-        </div>
+        <h1><FaShieldAlt /> Admin Profile</h1>
 
-        <div className="profile-content">
-          <div className="profile-sidebar">
-            <div className="profile-avatar-section">
-              <div className="avatar-wrapper">
-                {admin?.profilePic ? (
-                  <img 
-                    src={admin.profilePic} 
-                    alt={admin.name || 'Admin'} 
-                    className="profile-avatar-img"
-                  />
-                ) : (
-                  <div className="profile-avatar-placeholder">
-                    {getInitials(admin?.name)}
-                  </div>
-                )}
-                <button 
-                  className="avatar-upload-btn"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={uploading}
-                >
-                  <FaCamera />
-                </button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePicUpload}
-                  style={{ display: 'none' }}
-                />
-              </div>
-              {uploading && <p className="uploading-text">Uploading...</p>}
-              <h2 className="profile-name">{admin?.name || 'Admin'}</h2>
-              <span className="profile-role">Administrator</span>
-            </div>
+        {message && (
+          <div className={`profile-message ${message.type}`}>
+            {message.text}
+          </div>
+        )}
 
-            <div className="profile-stats">
-              <div className="stat-item">
-                <FaCalendarAlt className="stat-icon" />
-                <div>
-                  <span className="stat-label">Member Since</span>
-                  <span className="stat-value">{formatDate(admin?.createdAt)}</span>
-                </div>
-              </div>
-            </div>
-
-            <button className="logout-btn" onClick={handleLogout}>
-              <FaSignOutAlt /> Logout
+        <div className="profile-card">
+          <div className="profile-avatar">
+            {admin?.profilePic ? (
+              <img src={admin.profilePic} alt="Admin" />
+            ) : (
+              <div className="avatar-placeholder">AD</div>
+            )}
+            <button onClick={() => fileInputRef.current.click()}>
+              <FaCamera />
             </button>
+            <input
+              type="file"
+              ref={fileInputRef}
+              style={{ display: "none" }}
+              accept="image/*"
+              onChange={handleProfilePicUpload}
+            />
           </div>
 
-          <div className="profile-main">
-            {message && (
-              <div className={`profile-message ${message.type}`}>
-                {message.text}
-              </div>
+          <div className="profile-fields">
+            <label><FaUser /> Name</label>
+            {editMode ? (
+              <input name="name" value={editData.name} onChange={handleEditChange} />
+            ) : (
+              <p>{admin?.name || "N/A"}</p>
             )}
 
-            <div className="profile-card">
-              <div className="card-header">
-                <h3><FaUser /> Personal Information</h3>
-                <button 
-                  className={`edit-toggle-btn ${editMode ? 'cancel' : ''}`}
-                  onClick={handleEditToggle}
-                >
-                  {editMode ? <><FaTimes /> Cancel</> : <><FaEdit /> Edit</>}
-                </button>
-              </div>
-              
-              <div className="profile-fields">
-                <div className="field-group">
-                  <label><FaUser /> Full Name</label>
-                  {editMode ? (
-                    <input
-                      type="text"
-                      name="name"
-                      value={editData.name}
-                      onChange={handleEditChange}
-                      placeholder="Enter your name"
-                    />
-                  ) : (
-                    <p>{admin?.name || 'Not set'}</p>
-                  )}
-                </div>
+            <label><FaEnvelope /> Email</label>
+            <p>{admin?.email}</p>
 
-                <div className="field-group">
-                  <label><FaEnvelope /> Email Address</label>
-                  {editMode ? (
-                    <input
-                      type="email"
-                      name="email"
-                      value={editData.email}
-                      onChange={handleEditChange}
-                      placeholder="Enter your email"
-                    />
-                  ) : (
-                    <p>{admin?.email || 'Not set'}</p>
-                  )}
-                </div>
+            <label><FaPhone /> Phone</label>
+            {editMode ? (
+              <input name="phone" value={editData.phone} onChange={handleEditChange} />
+            ) : (
+              <p>{admin?.phone || "N/A"}</p>
+            )}
 
-                <div className="field-group">
-                  <label><FaPhone /> Phone Number</label>
-                  {editMode ? (
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={editData.phone}
-                      onChange={handleEditChange}
-                      placeholder="Enter your phone"
-                    />
-                  ) : (
-                    <p>{admin?.phone || 'Not set'}</p>
-                  )}
-                </div>
-
-                {editMode && (
-                  <button 
-                    className="save-profile-btn"
-                    onClick={handleProfileUpdate}
-                    disabled={saving}
-                  >
-                    <FaSave /> {saving ? 'Saving...' : 'Save Changes'}
-                  </button>
-                )}
-              </div>
-            </div>
-
-            <div className="profile-card security-card">
-              <div className="card-header">
-                <h3><FaLock /> Security Settings</h3>
-                <button 
-                  className={`edit-toggle-btn ${changeMode ? 'cancel' : ''}`}
-                  onClick={() => {
-                    setChangeMode(!changeMode);
-                    setMessage(null);
-                    setPasswords({ currentPassword: "", newPassword: "", confirmPassword: "" });
-                  }}
-                >
-                  {changeMode ? <><FaTimes /> Cancel</> : <><FaEdit /> Change Password</>}
-                </button>
-              </div>
-
-              {changeMode ? (
-                <div className="password-change-form">
-                  <div className="field-group">
-                    <label>Current Password</label>
-                    <input
-                      type="password"
-                      name="currentPassword"
-                      value={passwords.currentPassword}
-                      onChange={handlePasswordInput}
-                      placeholder="Enter current password"
-                    />
-                  </div>
-                  <div className="field-group">
-                    <label>New Password</label>
-                    <input
-                      type="password"
-                      name="newPassword"
-                      value={passwords.newPassword}
-                      onChange={handlePasswordInput}
-                      placeholder="Enter new password"
-                    />
-                  </div>
-                  <div className="field-group">
-                    <label>Confirm New Password</label>
-                    <input
-                      type="password"
-                      name="confirmPassword"
-                      value={passwords.confirmPassword}
-                      onChange={handlePasswordInput}
-                      placeholder="Confirm new password"
-                    />
-                  </div>
-                  <button 
-                    className="save-profile-btn"
-                    onClick={handlePasswordChange}
-                    disabled={saving}
-                  >
-                    <FaLock /> {saving ? 'Updating...' : 'Update Password'}
-                  </button>
-                </div>
-              ) : (
-                <div className="security-info">
-                  <p>Your password is securely encrypted. Click "Change Password" to update your credentials.</p>
-                </div>
-              )}
-            </div>
+            {editMode ? (
+              <button onClick={handleProfileUpdate}><FaSave /> Save</button>
+            ) : (
+              <button onClick={handleEditToggle}><FaEdit /> Edit</button>
+            )}
           </div>
         </div>
+
+        <div className="profile-card">
+          <h3><FaLock /> Change Password</h3>
+          <input type="password" placeholder="Current password"
+            onChange={(e) => setPasswords({ ...passwords, currentPassword: e.target.value })} />
+          <input type="password" placeholder="New password"
+            onChange={(e) => setPasswords({ ...passwords, newPassword: e.target.value })} />
+          <input type="password" placeholder="Confirm password"
+            onChange={(e) => setPasswords({ ...passwords, confirmPassword: e.target.value })} />
+          <button onClick={handlePasswordChange}>Update Password</button>
+        </div>
+
+        <button className="logout-btn" onClick={handleLogout}>
+          <FaSignOutAlt /> Logout
+        </button>
       </div>
     </AdminLayout>
   );

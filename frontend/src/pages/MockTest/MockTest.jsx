@@ -783,9 +783,9 @@ const MockTest = () => {
               <img src={team} alt="Mentors" />
             </div>
             <div className="trust-content">
-              <h3>Why Students Trust TathaGat</h3>
+              <h3>Why Students Trust WebMok</h3>
               <p className="trust-desc">
-                Since 2007, TathaGat has helped thousands crack exams like CAT,
+                Since 2007, WebMok has helped thousands crack exams like CAT,
                 XAT, GMAT, and SNAP with expert mentors, concept-focused
                 learning, and personalized guidance in small batches.
               </p>
@@ -801,7 +801,7 @@ const MockTest = () => {
               <div className="support-box">
                 <h4>24*7 Support</h4>
                 <p>
-                  TathaGat offers unlimited one-on-one doubt sessions, live
+                  WebMok offers unlimited one-on-one doubt sessions, live
                   class doubt resolution, and round-the-clock assistance,
                   ensuring no query goes unanswered.
                 </p>

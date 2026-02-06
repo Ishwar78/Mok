@@ -50,7 +50,7 @@ const SeventhPage = () => {
       name: "Jalaj Gaba",
       institute: "99.72%",
       testimonial:
-        "TathaGat’s personalized mentorship and rigorous practice sessions helped me achieve 99%ile in CAT. Their approach truly transformed my preparation.",
+        "Webmok’s personalized mentorship and rigorous practice sessions helped me achieve 99%ile in CAT. Their approach truly transformed my preparation.",
       score: "CAT 2025\n99.72%",
       image: jalaj, // use your `Frame 621.png` here
     },
@@ -59,7 +59,7 @@ const SeventhPage = () => {
       name: "Jai Vashisth",
       institute: "99.57%",
       testimonial:
-        "TathaGat transformed my preparation journey from average to amazing. I owe my success to my mentors at TG. The structure, strategies and classes helped me score so well in CAT.",
+        "Webmok transformed my preparation journey from average to amazing. I owe my success to my mentors at TG. The structure, strategies and classes helped me score so well in CAT.",
       score: "CAT 2025\n99.57%",
       image: two, // use your `Frame 621.png` here
     },
@@ -68,7 +68,7 @@ const SeventhPage = () => {
       name: "Manu Vatsal ",
       institute: "99.54%",
       testimonial:
-        "I would credit my performance in the CAT exam solely to TathaGat. Indeed my hard work was not only channelized strategically, but my teachers at TathaGat also kept me motivated and focussed.",
+        "I would credit my performance in the CAT exam solely to Webmok. Indeed my hard work was not only channelized strategically, but my teachers at Webmok also kept me motivated and focussed.",
       score: "CAT 2025\n99.54%",
       image:four, // use your `Frame 621.png` here
     },
@@ -155,7 +155,7 @@ const SeventhPage = () => {
         <div className="tg-success-left">
           <h2>CAT Success Stories</h2>
           <p>
-            TathaGat has consistently produced CAT toppers and 99%ilers, thanks
+            Webmok has consistently produced CAT toppers and 99%ilers, thanks
             to our rigorous training, personalized mentorship, and effective
             strategy sessions. Our students excel by mastering concepts,
             practising real-time questions, and optimizing their exam

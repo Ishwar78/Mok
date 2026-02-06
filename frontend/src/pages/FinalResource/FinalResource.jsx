@@ -378,22 +378,22 @@ const FinalResource = () => {
               {
                 title: "Popular Blogs",
                 topic: "Verbal Ability: How to Improve Reading Comprehension Scores Quickly",
-                author: "By TathaGat Faculty",
+                author: "By WebMok Faculty",
               },
               {
                 title: "Popular Blogs",
                 topic: "Quantitative Aptitude: Tricks to Solve Questions Faster",
-                author: "By TathaGat Faculty",
+                author: "By WebMok Faculty",
               },
               {
                 title: "Popular Blogs",
                 topic: "Logical Reasoning: Key Strategies for CAT",
-                author: "By TathaGat Faculty",
+                author: "By WebMok Faculty",
               },
               {
                 title: "Popular Blogs",
                 topic: "Data Interpretation: How to Master Charts and Graphs",
-                author: "By TathaGat Faculty",
+                author: "By WebMok Faculty",
               },
             ].map((item, i) => (
               <div key={i} className="h-blog">
@@ -422,7 +422,7 @@ const FinalResource = () => {
                   View all
                 </button>
               </div>
-              <img src={team} alt="TathaGat Team" className="e-team-img" />
+              <img src={team} alt="WebMok Team" className="e-team-img" />
             </div>
 
             <div className="e-right">
@@ -432,7 +432,7 @@ const FinalResource = () => {
   type="button"
   className="e-btn-view"
   onClick={() =>
-    window.open("https://www.youtube.com/@TGTathagat", "_blank", "noopener,noreferrer")
+    window.open("https://www.youtube.com/@TGWebMok", "_blank", "noopener,noreferrer")
   }
 >
   View all
@@ -484,7 +484,7 @@ const FinalResource = () => {
           </div>
 
           <p className="tg-bottom-text">
-            <span className="tg-highlight">Be part of the TathaGat learning community!</span>
+            <span className="tg-highlight">Be part of the WebMok learning community!</span>
           </p>
         </div>
 

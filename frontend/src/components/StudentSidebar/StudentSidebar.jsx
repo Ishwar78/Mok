@@ -1,6 +1,6 @@
 import React from "react";
 import "./StudentSidebar.css";
-import TGLOGO from "../../images/TGLogo.webp";
+import TGLOGO from "../../images/webm.png";
 import { Link } from "react-router-dom";
 
 const StudentSidebar = ({ isOpen, closeSidebar }) => {

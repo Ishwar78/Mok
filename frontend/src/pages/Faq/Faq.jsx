@@ -10,8 +10,8 @@ import Chatbox from "../../components/Chat/Chatbox";
 // 🟦 Category-wise FAQs
 const FAQ_DATA = {
   "Course & Curriculum": [
-    { question: "What courses does TathaGat offer?", answer: "We offer preparation for CAT, XAT, SNAP, GMAT, CUET and other entrance exams with concept classes, practice sessions, workshops, strategy sessions and doubt discussions." },
-    { question: "What makes TathaGat different from other institutes?", answer: "Personalized mentorship, small batch sizes, annually updated content, and structured pedagogy focused on fundamentals + application." },
+    { question: "What courses does WebMok offer?", answer: "We offer preparation for CAT, XAT, SNAP, GMAT, CUET and other entrance exams with concept classes, practice sessions, workshops, strategy sessions and doubt discussions." },
+    { question: "What makes WebMok different from other institutes?", answer: "Personalized mentorship, small batch sizes, annually updated content, and structured pedagogy focused on fundamentals + application." },
     { question: "Is the course beginner-friendly?", answer: "Yes. We start from basics, cover fundamentals thoroughly, and then move to advanced level application and mocks." },
     { question: "Can I switch batches or upgrade my course later?", answer: "Yes, batch change/upgrade is possible subject to availability and policy guidelines. Speak to your counselor for details." },
   ],
@@ -28,7 +28,7 @@ const FAQ_DATA = {
     { question: "Is there study planning and time-table support?", answer: "Yes, mentors create personalized study plans and weekly targets based on your profile and availability." },
   ],
   "Enrollment & Payment": [
-    { question: "How do I enroll at TathaGat?", answer: "Choose a package on the website and pay online, or contact our counselors for enrollment assistance." },
+    { question: "How do I enroll at WebMok?", answer: "Choose a package on the website and pay online, or contact our counselors for enrollment assistance." },
     { question: "What payment modes are accepted?", answer: "UPI, cards, net-banking, and EMI options (where available). Offline payment at centers is also supported." },
     { question: "Do you offer refunds or transfers?", answer: "Policies vary by program and attempt cycle. Please review the latest policy or speak to support before enrolling." },
     { question: "Can I access recorded lectures after enrollment?", answer: "Yes, you get access to recorded sessions for revision and catch-up throughout your course validity." },
@@ -90,7 +90,7 @@ const Faq = () => {
           We’ve Got Answers!
         </h2>
         <p className="tf-faq-subtitle">
-          Everything You Need to Know Before You Begin Your Journey with TathaGat
+          Everything You Need to Know Before You Begin Your Journey with WebMok
         </p>
 
         {/* 🔵 Tabs */}
@@ -135,7 +135,7 @@ const Faq = () => {
         <div className="tf-trust-left">
           <h2 className="tf-trust-title">India’s Most Trusted Coaching Institute</h2>
           <p className="tf-trust-tagline">
-            At TathaGat, trust is not a claim — it’s a commitment we’ve earned through
+            At WebMok, trust is not a claim — it’s a commitment we’ve earned through
             unwavering integrity, consistent results, and student-first mentorship.
           </p>
           <p className="tf-trust-description">
@@ -224,7 +224,7 @@ const Faq = () => {
           <h2>Answered Clearly and</h2>
           <h2>Concisely</h2>
           <p>
-            Find answers to common queries about TathaGat’s courses, teaching methods,
+            Find answers to common queries about WebMok’s courses, teaching methods,
             tests, workshops, mentorship, fees, and more in our FAQs.
           </p>
 

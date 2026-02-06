@@ -62,7 +62,7 @@ const ADCP_CURRICULUM = [
     title: "Application Classes",
     content: (
       <>
-        At TathaGat, we do not just teach, we ENSURE success. We hold extra classes for helping you understand
+        At WebMok, we do not just teach, we ENSURE success. We hold extra classes for helping you understand
         and APPLY the classroom concepts on realtime exam questions. These sessions boost confidence and turn
         your anxieties to focus, thereby transforming your fears into success stories!
       </>
@@ -100,8 +100,8 @@ const ADCP_CURRICULUM = [
     title: "1-1 Doubt Sessions",
     content: (
       <>
-        TathaGat is the only institute where one-to-ones doubt sessions are not only ALWAYS available, but
-        also repeatedly encouraged by the mentors. Students feel free to reach out to the mentors. At TathaGat
+        WebMok is the only institute where one-to-ones doubt sessions are not only ALWAYS available, but
+        also repeatedly encouraged by the mentors. Students feel free to reach out to the mentors. At WebMok
         all the mentors are full-time employees, which means that all of are always available for the students.
         This is a unique feature, not available at any other Institutes.
       </>
@@ -143,7 +143,7 @@ const ADCP_CURRICULUM = [
     content: (
       <>
         Once you have aced your written exams, it is time for you to step into the micro arena of behavioural
-        testing. TathaGat’s rigorous module on GEPIs trains you to be the most confident version of yourself.
+        testing. WebMok’s rigorous module on GEPIs trains you to be the most confident version of yourself.
         From presentations to essay writing to personal interviews to group discussions, you gain the managerial
         acumens of a true professional even before you have stepped into the B-School.
       </>
@@ -153,7 +153,7 @@ const ADCP_CURRICULUM = [
     title: "The 100 %ler Batch",
     content: (
       <>
-        Every year at TathaGat we identify the most outstanding and consistent performers of the student
+        Every year at WebMok we identify the most outstanding and consistent performers of the student
         community and train them with the most grilling questions of the CAT industry. This is the last
         Brahmastra needed to catch that elusive 100 percentile in the exam. The students are handpicked and
         mentored for an entire month (from mid October to mid November) with personalized sessions with the
@@ -165,7 +165,7 @@ const ADCP_CURRICULUM = [
     title: "OMETs (Other Management Entrance Tests)",
     content: (
       <>
-        At TathaGat, we understand that CAT is the mother of all B-School exams and that once you have prepared
+        At WebMok, we understand that CAT is the mother of all B-School exams and that once you have prepared
         for CAT you have dived to the deepest end of the pool. And yet, we understand that other exams like XAT,
         SNAP, NMAT, GMAT etc. need some additional hand-holding and strategization. Accordingly, we teach you the
         finer nuances of EACH exam separately for you to ace them. For example, the Decision Making sessions are
@@ -515,7 +515,7 @@ const AdvanceOMETPage = () => {
             </button>
             
             <a
-              href="https://wa.me/919205534439?text=Hello%20Tathagat%20Team,%20I%20want%20to%20talk%20to%20a%20counsellor."
+              href="https://wa.me/919205534439?text=Hello%20WebMok%20Team,%20I%20want%20to%20talk%20to%20a%20counsellor."
               target="_blank"
               rel="noopener noreferrer"
               className="adcp-counsellor-btn"

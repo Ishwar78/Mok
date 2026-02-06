@@ -24,11 +24,11 @@ import review12 from "../../images/Review/R2.PNG";
 import Chatbox from "../../components/Chat/Chatbox";
 
 const testimonials = [
-  { name: "Gourav Sharma", score: "CAT 99.8%ile", image: successtwo, message: "I studied at TathaGat back in 2014. TG exceeded my expectations...", author: "Prabhat Ralhan", stars: 5 },
+  { name: "Gourav Sharma", score: "CAT 99.8%ile", image: successtwo, message: "I studied at Webmok back in 2014. TG exceeded my expectations...", author: "Prabhat Ralhan", stars: 5 },
   { name: "Pranjal Malhotra", score: "CAT 99.6%ile", image: successthree, message: "The study materials were comprehensive and well-structured...", author: "Prabhat Ralhan", stars: 5 },
   { name: "Shivam Sharma", score: "CAT 99.7%ile", image: successfour, message: "Faculty were exceptionally knowledgeable and experienced...", author: "Prabhat Ralhan", stars: 5 },
   { name: "Amit Raj", score: "CAT 99.7%ile", image: successfive, message: "Faculty were exceptionally knowledgeable and experienced...", author: "Prabhat Ralhan", stars: 5 },
-  { name: "Gourav Sharma", score: "CAT 99.8%ile", image: successtwo, message: "I studied at TathaGat back in 2014. TG exceeded my expectations...", author: "Prabhat Ralhan", stars: 5 },
+  { name: "Gourav Sharma", score: "CAT 99.8%ile", image: successtwo, message: "I studied at WebMok back in 2014. TG exceeded my expectations...", author: "Prabhat Ralhan", stars: 5 },
 ];
 
 const feedbackImages = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12];
@@ -116,7 +116,7 @@ const ScoreCard = () => {
       <section className="scorecard-wrapper">
         <div className="scorecard-content">
           <div className="scorecard-heading">
-            <h1>TathaGat Scorecard Wall</h1>
+            <h1>Webmok Scorecard Wall</h1>
             <p>
               See how our students have performed in <strong>CAT, XAT, SNAP</strong> & more!
             </p>
@@ -242,7 +242,7 @@ const ScoreCard = () => {
       <div className="tgs-wrapper">
         <div className="tgs-inner">
           <div className="tgs-header">
-            <h1 className="tg-heading">TathaGat Toppers' Feedback</h1>
+            <h1 className="tg-heading">WebMok Toppers' Feedback</h1>
             {!showAll && (
               <button className="tgs-btns" onClick={() => setShowAll(true)}>
                 View All

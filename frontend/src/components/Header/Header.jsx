@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom"; // ⬅ useLocation add
 import { Phone, Mail, Facebook, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react"; // ⬅ useEffect add
 import "./Header.css";
-import logo from "../../images/tgLOGO.png";
+import logo from "../../images/webm.png";
 
 
 
@@ -40,7 +40,7 @@ export default function Header() {
           <div className="contact-left">
             <div className="contact-item">
               <Phone className="contact-icon" />
-              <span>9205534439</span>
+              <span> 8950329919</span>
             </div>
 
 {/* <a
@@ -57,7 +57,7 @@ export default function Header() {
             <div className="contact-separator">|</div>
             <div className="contact-item">
               <Mail className="contact-icon" />
-              <span>info@tathagat.co.in</span>
+              <span>info@webmok.in</span>
             </div>
           </div>
 <div className="social-icons-center">
@@ -73,10 +73,10 @@ export default function Header() {
 
   {/* Instagram */}
   <a
-    href="https://www.instagram.com/tgtathagat/?hl=en"
+    href="https://www.instagram.com/webmokofficial/"
     target="_blank"
     rel="noreferrer"
-    aria-label="TathaGat Instagram"
+    aria-label="WebMok Instagram"
   >
     <img src={igIcon} alt="Instagram" className="social-img" />
   </a>
@@ -86,17 +86,17 @@ export default function Header() {
     href="https://t.me/freecatprep"  
     target="_blank"
     rel="noreferrer"
-    aria-label="TathaGat Telegram"
+    aria-label="WebMok Telegram"
   >
     <img src={tgIcon} alt="Telegram" className="social-img" />
   </a>
 
   {/* Facebook */}
   <a
-    href="https://www.facebook.com/TGTathaGat/"
+    href="https://www.facebook.com/webmok"
     target="_blank"
     rel="noreferrer"
-    aria-label="TathaGat Facebook"
+    aria-label="WebMok Facebook"
   >
     <img src={fbIcon} alt="Facebook" className="social-img" />
   </a>

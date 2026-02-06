@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "./SecondPage.css";
 
 // ✅ ONLY Mobile image (sliding image will show ONLY on mobile)
-import mentorImageMobile from "../../../images/newyear.jpeg";
+import mentorImageMobile from "../../../images/colorblue.jpg";
 
 // ✅ Background image (TAT26)
-import bgImage from "../../../images/TAT26.jpeg";
+import bgImage from "../../../images/colorblue.jpg";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -20,7 +20,7 @@ const badges = [
   "No.1 CAT Coaching Institute by WAAC",
 ];
 
-const examsSet = ["CAT | XAT | SNAP ", "CUET | IPMAT"];
+const examsSet = ["Digital marketing", "Web Development "];
 
 // ✅ YouTube constants (as given — kept as-is)
 const YT_ID = "LOtxfzDHcew";
@@ -121,7 +121,7 @@ const SecondPage = () => {
             <h2 className="mentors-heading">
               Crack <span className="exam-text">{examsSet[examIndex]}</span>
               <br />
-              with <span className="highlight">TathaGat</span>
+              with <span className="highlight">Webmok</span>
             </h2>
 
             <p className="mentors-desc">
@@ -170,7 +170,7 @@ const SecondPage = () => {
               <div>
                 <small>Watch Video</small>
                 <br />
-                <strong>TathaGat® Overview in 60 Seconds</strong>
+                <strong>WebMok® Overview in 60 Seconds</strong>
               </div>
             </div>
           </div>

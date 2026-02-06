@@ -73,7 +73,7 @@ const FifthPage = () => {
         <div className="tgf-learning-header">
           <div className="tgf-learning-left">
             <p className="tgf-sub">OUR APPROACH</p>
-            <h2 className="tgf-title">TathaGat Model of learning</h2>
+            <h2 className="tgf-title">WebMok Model of learning</h2>
           </div>
           <div className="tgf-learning-right">
             <p className="tgf-desc">

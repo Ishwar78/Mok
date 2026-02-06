@@ -35,7 +35,7 @@ const testimonials = [
   {
     name: "KUSH SAXENA",
     college: "FMS",
-    text: "There are simply no words to describe the learning and experience that i had in Tathagat, the fact that it is being spearheaded by the best teacher of India (Kumar Sir) is itself a testimonial for this.",
+    text: "There are simply no words to describe the learning and experience that i had in WebMok, the fact that it is being spearheaded by the best teacher of India (Kumar Sir) is itself a testimonial for this.",
     image: reviewsecond,
   },
   {
@@ -111,7 +111,7 @@ export default function FirstPage() {
               </div>
             </div>
             <p className="firstpage-testimonial-text">
-              <strong>TathaGat</strong> {testimonials[testimonialIndex].text}
+              <strong>Webmok</strong> {testimonials[testimonialIndex].text}
             </p>
             <div className="firstpage-testimonial-footer">
            

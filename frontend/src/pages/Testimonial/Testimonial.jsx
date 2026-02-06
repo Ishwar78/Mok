@@ -77,7 +77,7 @@ function Testimonial() {
   const reviews = new Array(6).fill({
     name: "Rohit Sharma",
     score: "CAT 99.8%ile",
-    message: "TathaGat’s workshops helped me build clarity and confidence in solving real exam problems with the right mindset."
+    message: "WebMok’s workshops helped me build clarity and confidence in solving real exam problems with the right mindset."
   });
 
   const workshopImages = [
@@ -103,7 +103,7 @@ function Testimonial() {
 
     },
     {
-      text: `Tathagat was instrumental in helping me get to my dream college (IIM Calcutta). .`,
+      text: `WebMok was instrumental in helping me get to my dream college (IIM Calcutta). .`,
       name: "Jatin Tuteja",
       college: "IIM-Calcutta",
       image: ravi3
@@ -172,7 +172,7 @@ function Testimonial() {
             <h2 className="ts-title">Trusted By Thousands Of Students Across India</h2>
             <p className="ts-desc">
               Real stories. Real results. Hear from the students who turned <br />
-              their dreams into reality with TathaGat’s expert guidance.
+              their dreams into reality with WebMok’s expert guidance.
             </p>
               <button className="ts-btn" onClick={() => navigate("/mock-test")}>
               Book a Free Counselling
@@ -185,7 +185,7 @@ function Testimonial() {
             </div>
 
             <div className="ts-awards">
-              <div className="ts-award-title">🏆 Awards & Achievements by TathaGat</div>
+              <div className="ts-award-title">🏆 Awards & Achievements by WebMok</div>
 
               <div className="ts-award-flex-line">
                 <div className="ts-award-col ts-year">2025</div>
@@ -240,11 +240,11 @@ function Testimonial() {
           <div className="tgL-right">
             <div className="tgL-box">
               <div className="tgL-box-heading">
-                Why Students Trust TathaGat?
+                Why Students Trust WebMok?
                 <span className="tgL-arrow">↗</span>
               </div>
               <p className="tgL-box-desc">
-                Since 2007, TathaGat has helped thousands crack exams like CAT, XAT,
+                Since 2007, WebMok has helped thousands crack exams like CAT, XAT,
                 GMAT, and SNAP with expert mentors, concept-focused learning, and
                 personalized guidance in small batches.
               </p>
@@ -271,9 +271,9 @@ function Testimonial() {
 
         <section className="why-container">
           <div className="why-left">
-            <h3 className="why-heading">Why Choose TathaGat Courses?</h3>
+            <h3 className="why-heading">Why Choose WebMok Courses?</h3>
             <p className="why-description">
-              At TathaGat, we don’t just teach — we mentor, challenge, and transform students to achieve their highest potential in competitive exams like CAT, XAT, SNAP, and CMAT. Our courses are built on years of expertise, deep understanding of exam patterns, and a proven track record of producing top scorers.
+              At WebMok, we don’t just teach — we mentor, challenge, and transform students to achieve their highest potential in competitive exams like CAT, XAT, SNAP, and CMAT. Our courses are built on years of expertise, deep understanding of exam patterns, and a proven track record of producing top scorers.
             </p>
             {/* <button className="why-button">View Course Page</button> */}
 <button className="why-button" onClick={() => navigate("/mock-test")}>
@@ -319,7 +319,7 @@ function Testimonial() {
             <h2>Conversations That Count</h2>
             <p className="tgc-convo-sub">Success Stories That Inspire</p>
             <p className="tgc-convo-desc">
-              See how determined students, guided by expert mentors at TathaGat,
+              See how determined students, guided by expert mentors at WebMok,
               transformed challenges<br></br> into top scores and B-school admits.
             </p>
           </div>
@@ -390,7 +390,7 @@ function Testimonial() {
 
 
 <div className="tgA-about-section">
-  <h4 className="tgA-subtitle">About TathaGat</h4>
+  <h4 className="tgA-subtitle">About WebMok</h4>
   <h2 className="tgA-title">Get to know us</h2>
 
   <div className="tgA-cards-wrapper">
@@ -407,16 +407,16 @@ function Testimonial() {
       <span className="tgA-icon">↗</span>
     </div>
 
-    {/* 2) Learn more about training at TathaGat → /compare */}
+    {/* 2) Learn more about training at WebMok → /compare */}
     <div
       className="tgA-card tgA-card--link"
       role="button"
       tabIndex={0}
       onClick={() => navigate("/compare")}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && navigate("/compare")}
-      aria-label="Learn more about training at TathaGat (go to /compare)"
+      aria-label="Learn more about training at WebMok (go to /compare)"
     >
-      <span className="tgA-link">Learn more about <br /> training at TathaGat</span>
+      <span className="tgA-link">Learn more about <br /> training at WebMok</span>
       <span className="tgA-icon">↗</span>
     </div>
 
@@ -444,7 +444,7 @@ function Testimonial() {
                 <h2 className="ttt-tab-title">Hear It From Our Achievers</h2>
                 <p className="ttt-tab-subtext">Real experiences across every stage of preparation</p>
                 <p className="ttt-tab-desc">
-                  At TathaGat, every step of your preparation journey is thoughtfully designed—from concept-cracking workshops to strategic SOP & interview sessions. Here’s what achievers have to say.
+                  At WebMok, every step of your preparation journey is thoughtfully designed—from concept-cracking workshops to strategic SOP & interview sessions. Here’s what achievers have to say.
                 </p>
               </div>
               <div className="ttt-tab-trophy"><img src={team} alt='' /></div>
@@ -481,7 +481,7 @@ function Testimonial() {
               </div>
 
               <div className="ttt-tab-gallery">
-                <h3 className="ttt-tab-gallery-titleee">Workshop Days at TathaGat!</h3>
+                <h3 className="ttt-tab-gallery-titleee">Workshop Days at WebMok!</h3>
                 <div className="ttt-tab-gallery-grid">
                   <img src={team1} alt='' />
                   <img src={team2} alt='' />
@@ -507,20 +507,20 @@ function Testimonial() {
             <div className="tgx-success-left">
               <h3 className="tgx-title">Visualizing Success</h3>
               <p className="tgx-desc">
-                At TathaGat, we don’t just teach — we track, mentor, and transform.
+                At WebMok, we don’t just teach — we track, mentor, and transform.
                 This success graph highlights the journey of our students across
                 multiple mock tests leading up to their final exam scores.
               </p>
               <p className="tgx-desc">
                 You can clearly see the consistent upward growth in performance after
-                joining TathaGat — thanks to our structured approach, one-on-one
+                joining WebMok — thanks to our structured approach, one-on-one
                 mentoring, and test-specific strategies.
               </p>
 
               <h5 className="tgx-sub">What does this graph show?</h5>
               <p className="tgx-graph-note">
                 A steady score improvement across each mock test, right from the point
-                they joined TathaGat — proving that targeted effort under expert
+                they joined WebMok — proving that targeted effort under expert
                 mentorship delivers results.
               </p>
 
@@ -533,7 +533,7 @@ function Testimonial() {
             </div>
 
             <div className="tgx-success-right">
-              <h4 className="tgx-chart-title">Student Success at TathaGat</h4>
+              <h4 className="tgx-chart-title">Student Success at WebMok</h4>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={data} margin={{ top: 10, right: 30, bottom: 0, left: -10 }}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -580,7 +580,7 @@ function Testimonial() {
           <div className="s-container">
             <h2 className="s-heading">Success Stories That Inspire</h2>
             <p className="s-subheading">
-              See how determined students, guided by expert mentors at TathaGat,
+              See how determined students, guided by expert mentors at WebMok,
               transformed challenges into top scores and B-school admits.
             </p>
             <div className="s-stories">

@@ -3,39 +3,81 @@ const router = express.Router();
 
 const roleController = require("../controllers/roleController");
 const adminUserController = require("../controllers/adminUserController");
+const { adminAuth } = require("../middleware/authMiddleware");
+const upload = require("../middleware/uploadMiddleware");
 
 /* ================== ADMIN AUTH ================== */
-// 🔑 ADMIN LOGIN (THIS WAS MISSING)
-router.post("/login", adminUserController.adminLogin);
+// ✅ FIXED: adminLogin (not loginAdmin)
+if (typeof adminUserController.adminLogin === "function") {
+  router.post("/login", adminUserController.adminLogin);
+}
+
+/* ================== ADMIN PROFILE ================== */
+if (typeof adminUserController.getProfile === "function") {
+  router.get("/me", adminAuth, adminUserController.getProfile);
+}
+
+if (typeof adminUserController.updateProfile === "function") {
+  router.put("/profile", adminAuth, adminUserController.updateProfile);
+}
+
+if (typeof adminUserController.uploadProfilePic === "function") {
+  router.post(
+    "/upload-profile",
+    adminAuth,
+    upload.single("profilePic"),
+    adminUserController.uploadProfilePic
+  );
+}
+
+if (typeof adminUserController.changePassword === "function") {
+  router.put(
+    "/change-password",
+    adminAuth,
+    adminUserController.changePassword
+  );
+}
 
 /* ================== ROLE ROUTES ================== */
-if (roleController && roleController.createRole) {
+if (typeof roleController?.createRole === "function") {
   router.post("/roles", roleController.createRole);
+}
+
+if (typeof roleController?.getRoles === "function") {
   router.get("/roles", roleController.getRoles);
-  if (roleController.updateRole) router.put("/roles/:id", roleController.updateRole);
+}
+
+if (typeof roleController?.updateRole === "function") {
+  router.put("/roles/:id", roleController.updateRole);
+}
+
+if (typeof roleController?.deleteRole === "function") {
   router.delete("/roles/:id", roleController.deleteRole);
 }
 
 /* ================== ADMIN USER ROUTES ================== */
-if (adminUserController && adminUserController.createAdminUser) {
+if (typeof adminUserController.createAdminUser === "function") {
   router.post("/admin-users", adminUserController.createAdminUser);
+}
+
+if (typeof adminUserController.getAdminUsers === "function") {
   router.get("/admin-users", adminUserController.getAdminUsers);
-  if (adminUserController.updateAdminUser) router.put("/admin-users/:id", adminUserController.updateAdminUser);
-  if (adminUserController.deleteAdminUser) router.delete("/admin-users/:id", adminUserController.deleteAdminUser);
+}
 
-  if (adminUserController.assignRole) {
-    router.put(
-      "/admin-users/:id/assign-role",
-      adminUserController.assignRole
-    );
-  }
+if (typeof adminUserController.updateAdminUser === "function") {
+  router.put("/admin-users/:id", adminUserController.updateAdminUser);
+}
 
-  if (adminUserController.toggleStatus) {
-    router.put(
-      "/admin-users/:id/toggle-status",
-      adminUserController.toggleStatus
-    );
-  }
+if (typeof adminUserController.deleteAdminUser === "function") {
+  router.delete("/admin-users/:id", adminUserController.deleteAdminUser);
+}
+
+if (typeof adminUserController.assignRole === "function") {
+  router.put("/admin-users/:id/assign-role", adminUserController.assignRole);
+}
+
+if (typeof adminUserController.toggleStatus === "function") {
+  router.put("/admin-users/:id/toggle-status", adminUserController.toggleStatus);
 }
 
 module.exports = router;

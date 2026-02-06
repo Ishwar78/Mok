@@ -10,7 +10,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../../../src/images/logo 1.png";
+import logo from "../../../src/images/webm.png";
 import watermark from "../../../src/images/TG 1.png";
 
 const Footer = () => {
@@ -20,7 +20,7 @@ const Footer = () => {
 
       <div className="tg-footer-bottom">
         <div className="tg-footer-brand">
-          <img src={logo} alt="TathaGat Logo" />
+          <img src={logo} alt="WebMok Logo" />
           <div className="tg-footer-social">
            <a
     href="https://wa.me/919205534439?text=Hi%20TathaGat%2C%20I%27m%20interested%20in%20CAT%20prep."
@@ -65,7 +65,7 @@ const Footer = () => {
               <FaFacebookF />
             </a>
           </div>
-          <p>TathaGat © 2025. All rights reserved.</p>
+          <p>WebMok © 2025. All rights reserved.</p>
         </div>
 
         <div className="tg-footer-links">
@@ -167,7 +167,7 @@ const Footer = () => {
                <li>
                 <Link to="/Cat26OMETOnline" style={{ color: "inherit", textDecoration: "none" }}>
                 Cat26+OMET Online
-                </Link>
+                </Link>Address: 1st Floor, 129 L, Near by Power House, Model Town, Rohtak, Haryana 124001
               </li> */}
             </ul>
           </div>
@@ -175,17 +175,17 @@ const Footer = () => {
           <div>
             <h4>Get In Touch</h4>
             <p>
-              <FaMapMarkerAlt /> 106, 1st Floor, New Delhi
+              <FaMapMarkerAlt /> 1st Floor, 129 L, Rohtak 
               <br />
-              House Connaught Place,
+             Near by Power House
               <br />
-              New Delhi 110001
+            Model Town, Rohtak, Haryana 124001
             </p>
             <p>
-              <FaPhoneAlt /> +91 9205534439
+              <FaPhoneAlt /> +91 8950329919
             </p>
             <p>
-              <FaEnvelope /> info@tathagat.co.in
+              <FaEnvelope /> info@webmok.in
             </p>
           </div>
 

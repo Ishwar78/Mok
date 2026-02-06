@@ -1,4 +1,7 @@
 const Course = require("../models/course/Course");
+const { upsertCourseOverviewToBuilder } = require("../services/builderService");
+
+/* ================= HELPERS ================= */
 
 const toList = (value) => {
   if (Array.isArray(value)) {
@@ -25,44 +28,58 @@ const buildOverviewPayload = (payload = {}) => ({
   videoUrl: typeof payload.videoUrl === "string" ? payload.videoUrl.trim() : "",
 });
 
-// ✅ Create new course
+/* ================= CREATE COURSE ================= */
+
 const createCourse = async (req, res) => {
   try {
     console.log("📥 Received course creation request");
 
-    const { name, description, price, oldPrice, courseType, startDate, endDate, keepAccessAfterEnd } = req.body;
-    const thumbnail = req.file ? req.file.filename : "";
+    const {
+      name,
+      description,
+      price,
+      oldPrice,
+      courseType,
+      startDate,
+      endDate,
+      keepAccessAfterEnd,
+    } = req.body;
+
+    const thumbnail = req.file ? req.file.filename : null;
 
     console.log("✅ req.body:", req.body);
     console.log("✅ req.file:", req.file);
 
-    // Check for required fields
-    if (!name || !description || !price || !thumbnail) {
+    // 🔧 FIX: thumbnail OPTIONAL, core fields REQUIRED
+    if (!name || !description || !price) {
       console.warn("⚠️ Missing required fields");
       return res.status(400).json({
         success: false,
-        message: "All fields (name, description, price, thumbnail) are required.",
+        message: "Name, description and price are required.",
       });
     }
 
-    // Check for duplicate
+    // Duplicate course check
     const existing = await Course.findOne({ name });
     if (existing) {
-      console.warn("��️ Course with same name already exists:", name);
-      return res.status(400).json({ success: false, message: "Course already exists" });
+      console.warn("⚠️ Course already exists:", name);
+      return res.status(400).json({
+        success: false,
+        message: "Course already exists",
+      });
     }
 
     const course = new Course({
       name,
       description,
-      price,
+      price: Number(price),
       oldPrice: oldPrice ? Number(oldPrice) : null,
-      thumbnail,
-      courseType: courseType || 'full_course',
-      createdBy: req.user.id,
+      thumbnail, // can be null
+      courseType: courseType || "full_course",
+      createdBy: req.user?.id || null,
       startDate: startDate || null,
       endDate: endDate || null,
-      keepAccessAfterEnd: keepAccessAfterEnd === 'false' ? false : true,
+      keepAccessAfterEnd: keepAccessAfterEnd === "false" ? false : true,
     });
 
     await course.save();
@@ -74,7 +91,7 @@ const createCourse = async (req, res) => {
       course,
     });
   } catch (err) {
-    console.error("❌ Error creating course:", err.message);
+    console.error("❌ Error creating course:", err);
     res.status(500).json({
       success: false,
       message: "Server error. Failed to create course.",
@@ -83,8 +100,8 @@ const createCourse = async (req, res) => {
   }
 };
 
+/* ================= GET ALL COURSES ================= */
 
-// ✅ Get all courses
 const getCourses = async (req, res) => {
   try {
     const courses = await Course.find().sort({ createdAt: -1 });
@@ -94,33 +111,48 @@ const getCourses = async (req, res) => {
   }
 };
 
-// ✅ Get course by ID
+/* ================= GET COURSE BY ID ================= */
+
 const getCourseById = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
-    if (!course) return res.status(404).json({ message: "Course not found" });
-
+    if (!course) {
+      return res.status(404).json({ message: "Course not found" });
+    }
     res.status(200).json({ success: true, course });
   } catch (err) {
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
-// ✅ Update course with image handling (partial updates supported)
+/* ================= UPDATE COURSE ================= */
+
 const updateCourse = async (req, res) => {
   try {
-    const { name, description, price, oldPrice, overview, courseType, startDate, endDate, keepAccessAfterEnd } = req.body;
-    
-    // Only include fields that are actually provided
+    const {
+      name,
+      description,
+      price,
+      oldPrice,
+      overview,
+      courseType,
+      startDate,
+      endDate,
+      keepAccessAfterEnd,
+    } = req.body;
+
     const updateData = {};
+
     if (name !== undefined) updateData.name = name;
     if (description !== undefined) updateData.description = description;
-    if (price !== undefined) updateData.price = price;
+    if (price !== undefined) updateData.price = Number(price);
     if (oldPrice !== undefined) updateData.oldPrice = oldPrice ? Number(oldPrice) : null;
     if (courseType !== undefined) updateData.courseType = courseType;
     if (startDate !== undefined) updateData.startDate = startDate || null;
     if (endDate !== undefined) updateData.endDate = endDate || null;
-    if (keepAccessAfterEnd !== undefined) updateData.keepAccessAfterEnd = keepAccessAfterEnd === 'false' ? false : true;
+    if (keepAccessAfterEnd !== undefined) {
+      updateData.keepAccessAfterEnd = keepAccessAfterEnd === "false" ? false : true;
+    }
 
     if (req.file) {
       updateData.thumbnail = req.file.filename;
@@ -132,14 +164,19 @@ const updateCourse = async (req, res) => {
 
     const updated = await Course.findByIdAndUpdate(req.params.id, updateData, {
       new: true,
+      runValidators: true,
     });
 
+    if (!updated) {
+      return res.status(404).json({ success: false, message: "Course not found" });
+    }
+
     try {
-      if (updated && updateData.overview) {
+      if (updateData.overview) {
         await upsertCourseOverviewToBuilder(updated);
       }
     } catch (e) {
-      console.warn("Builder sync skipped/failed on updateCourse", e.message);
+      console.warn("Builder sync skipped/failed on updateCourse:", e.message);
     }
 
     res.status(200).json({
@@ -152,7 +189,8 @@ const updateCourse = async (req, res) => {
   }
 };
 
-// ✅ Delete course
+/* ================= DELETE COURSE ================= */
+
 const deleteCourse = async (req, res) => {
   try {
     await Course.findByIdAndDelete(req.params.id);
@@ -162,7 +200,8 @@ const deleteCourse = async (req, res) => {
   }
 };
 
-// ✅ Lock/Unlock course
+/* ================= LOCK / UNLOCK ================= */
+
 const toggleLock = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -181,7 +220,8 @@ const toggleLock = async (req, res) => {
   }
 };
 
-// ✅ Publish/Unpublish course
+/* ================= PUBLISH / UNPUBLISH ================= */
+
 const togglePublish = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -200,11 +240,11 @@ const togglePublish = async (req, res) => {
   }
 };
 
-// ✅ Get all published courses for students
+/* ================= STUDENT COURSES ================= */
+
 const getPublishedCourses = async (req, res) => {
-  console.log('📚 getPublishedCourses called');
-  
-  // Mock courses fallback data
+  console.log("📚 getPublishedCourses called");
+
   const mockCourses = [
     {
       _id: "dev_mock_1",
@@ -213,7 +253,7 @@ const getPublishedCourses = async (req, res) => {
       price: 15999,
       thumbnail: "cat-course.jpg",
       published: true,
-      createdAt: new Date()
+      createdAt: new Date(),
     },
     {
       _id: "dev_mock_2",
@@ -222,7 +262,7 @@ const getPublishedCourses = async (req, res) => {
       price: 12999,
       thumbnail: "xat-course.jpg",
       published: true,
-      createdAt: new Date()
+      createdAt: new Date(),
     },
     {
       _id: "dev_mock_3",
@@ -231,41 +271,41 @@ const getPublishedCourses = async (req, res) => {
       price: 8999,
       thumbnail: "nmat-course.jpg",
       published: true,
-      createdAt: new Date()
-    }
+      createdAt: new Date(),
+    },
   ];
-  
+
   try {
-    const mongoose = require('mongoose');
-    
-    // Check if database is connected (readyState: 1 = connected)
+    const mongoose = require("mongoose");
+
     if (mongoose.connection.readyState !== 1) {
-      console.log('⚠️ Database not connected (state:', mongoose.connection.readyState, '), using mock data');
+      console.log("⚠️ DB not connected, using mock data");
       return res.status(200).json({ success: true, courses: mockCourses });
     }
-    
-    console.log('🔍 Searching for published courses in database...');
-    
-    // First check all courses
-    const allCourses = await Course.find({}).sort({ createdAt: -1 });
-    console.log('📊 Total courses in database:', allCourses.length);
-    console.log('📋 All courses:', allCourses.map(c => ({ name: c.name, published: c.published, locked: c.locked })));
 
-    // Then get only published courses
     const courses = await Course.find({ published: true }).sort({ createdAt: -1 });
-    console.log('✅ Published courses found:', courses.length);
-    console.log('📋 Published courses:', courses.map(c => ({ name: c.name, published: c.published })));
-
     res.status(200).json({ success: true, courses });
   } catch (err) {
-    console.error('❌ Error in getPublishedCourses:', err);
-    // Return mock data on any error
-    console.log('⚠️ Database error, using mock data');
+    console.error("❌ Error in getPublishedCourses:", err);
     res.status(200).json({ success: true, courses: mockCourses });
   }
 };
 
-const { upsertCourseOverviewToBuilder } = require("../services/builderService");
+/* ================= STUDENT COURSE BY ID ================= */
+
+const getPublishedCourseById = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course || !course.published) {
+      return res.status(403).json({ message: "Course not published or not found" });
+    }
+    res.status(200).json({ success: true, course });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+};
+
+/* ================= OVERVIEW ================= */
 
 const upsertCourseOverview = async (req, res) => {
   try {
@@ -273,15 +313,7 @@ const upsertCourseOverview = async (req, res) => {
 
     const updatedCourse = await Course.findByIdAndUpdate(
       req.params.id,
-      {
-        $set: {
-          "overview.description": overview.description,
-          "overview.about": overview.about,
-          "overview.materialIncludes": overview.materialIncludes,
-          "overview.requirements": overview.requirements,
-          "overview.videoUrl": overview.videoUrl,
-        },
-      },
+      { $set: { overview } },
       { new: true, runValidators: true }
     );
 
@@ -292,35 +324,24 @@ const upsertCourseOverview = async (req, res) => {
     try {
       await upsertCourseOverviewToBuilder(updatedCourse);
     } catch (e) {
-      console.warn("Builder sync skipped/failed on upsertCourseOverview", e.message);
+      console.warn("Builder sync skipped:", e.message);
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
       message: "Course overview saved successfully",
       course: updatedCourse,
     });
   } catch (error) {
-    console.error("❌ Error saving course overview:", error);
-    res.status(500).json({ success: false, message: "Failed to save course overview", error: error.message });
+    res.status(500).json({
+      success: false,
+      message: "Failed to save course overview",
+      error: error.message,
+    });
   }
 };
 
-const getPublishedCourseById = async (req, res) => {
-  try {
-    const course = await Course.findById(req.params.id);
-
-    if (!course || !course.published) {
-      return res.status(403).json({ message: "Course not published or not found" });
-    }
-
-    res.status(200).json({ success: true, course });
-  } catch (err) {
-    res.status(500).json({ success: false, message: "Server error" });
-  }
-};
-
-
+/* ================= EXPORTS ================= */
 
 module.exports = {
   createCourse,

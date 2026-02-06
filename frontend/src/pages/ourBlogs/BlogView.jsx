@@ -55,12 +55,12 @@ const BlogView = () => {
     const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${siteUrl}${imageUrl}`;
     
     return {
-      title: blog.seoTitle || blog.title || 'TathaGat Blog',
+      title: blog.seoTitle || blog.title || 'WebMok Blog',
       description: blog.seoDescription || blog.excerpt || 'Read the latest articles on CAT, MBA, and competitive exam preparation.',
       keywords: Array.isArray(blog.seoKeywords) ? blog.seoKeywords.join(', ') : (blog.seoKeywords || 'CAT, MBA, IIM, exam preparation'),
       canonicalUrl: blog.canonicalUrl || blogUrl,
       ogImage: fullImageUrl,
-      author: blog.authorName || 'TathaGat Faculty',
+      author: blog.authorName || 'WebMok Faculty',
       publishedTime: blog.createdAt,
       modifiedTime: blog.updatedAt
     };
@@ -100,7 +100,7 @@ const BlogView = () => {
   return (
     <div className="blog-view-page">
       <Helmet>
-        <title>{seo.title} | TathaGat</title>
+        <title>{seo.title} | WebMok</title>
         <meta name="description" content={seo.description} />
         <meta name="keywords" content={seo.keywords} />
         <meta name="author" content={seo.author} />
@@ -111,7 +111,7 @@ const BlogView = () => {
         <meta property="og:description" content={seo.description} />
         <meta property="og:image" content={seo.ogImage} />
         <meta property="og:url" content={seo.canonicalUrl} />
-        <meta property="og:site_name" content="TathaGat" />
+        <meta property="og:site_name" content="WebMok" />
         <meta property="article:published_time" content={seo.publishedTime} />
         <meta property="article:modified_time" content={seo.modifiedTime} />
         <meta property="article:author" content={seo.author} />
@@ -134,7 +134,7 @@ const BlogView = () => {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "TathaGat",
+              "name": "WebMok",
               "logo": {
                 "@type": "ImageObject",
                 "url": `${window.location.origin}/logo.png`
@@ -158,7 +158,7 @@ const BlogView = () => {
             <span className="category-tag">{blog.category}</span>
             <h1>{blog.title}</h1>
             <div className="blog-meta">
-              <span><FaUser /> {blog.authorName || "TathaGat Faculty"}</span>
+              <span><FaUser /> {blog.authorName || "WebMok Faculty"}</span>
               <span><FaCalendarAlt /> {formatDate(blog.createdAt)}</span>
               <span><FaEye /> {blog.views || 0} views</span>
             </div>
