@@ -72,8 +72,8 @@ export default function FirstPage() {
         <div className="firstpage-hero-left">
           <p className="firstpage-hero-tagline">DREAM BIG. PREPARE SMART. ACHIEVE MORE.</p>
           <h1 className="firstpage-hero-heading">
-            700+   99 Percentilers<br />
-            in CAT 2025! <span className="highlight"></span>
+            700+   Students<br />
+            in Placement <span className="highlight"></span>
           </h1>
         </div>
 
@@ -81,7 +81,7 @@ export default function FirstPage() {
         <div className="firstpage-hero-right">
           {/* Carousel Card */}
           <div className="firstpage-hero-card">
-            <span className="firstpage-badge">Since 2007</span>
+            <span className="firstpage-badge">Since 2015</span>
             <div className="firstpage-hero-icon">{slides[current].icon}</div>
             <p className="firstpage-card-text">{slides[current].text}</p>
             <div className="firstpage-dots">
@@ -120,7 +120,7 @@ export default function FirstPage() {
   className="story-link"
   onClick={(e) => { e.preventDefault(); navigate("/Testimonial"); }}
 >
-  1700+ Success Stories →
+  1000+ Success Stories →
 </a>
               <div className="firstpage-arrows">
                 <FaArrowLeft onClick={handlePrev} className="arrow" />

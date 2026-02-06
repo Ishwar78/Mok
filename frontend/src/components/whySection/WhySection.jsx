@@ -231,7 +231,7 @@ const WhySection = () => {
             <h2 className="wt-heading">Because We Make Success Inevitable!</h2>
             <p className="wt-subtext">
               WebMok is committed to your success in competitive exams,
-              whether it's CAT, XAT, SNAP, GMAT, or CUET. Our unique teaching
+              whether it's Digital Marketing ,Web Design & Development Our unique teaching
               methodology ensures that students grasp concepts from the ground
               up, with a focus on application-based learning. We offer
               personalized mentorship, small batch sizes, and AI-driven

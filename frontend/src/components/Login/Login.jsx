@@ -4,7 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import axios from "../../utils/axiosConfig";
 import { useNavigate } from "react-router-dom";
-import TGLOGO from "../../images/tgLOGO.png";
+import TGLOGO from "../../images/webm.png";
 
 const Login = ({ onClose, setUser }) => {
   const [step, setStep] = useState("choice");

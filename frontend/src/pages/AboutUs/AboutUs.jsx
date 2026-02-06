@@ -106,13 +106,13 @@ const taScoreCards = [
 ];
 
 const timelineData = [
-    { year: "2007", icon: F2007, title: "Inception",p:"Rajat and kumar pioneer India's first coaching institute with a single-minded focuson personalized mentoring and result.TathaGat also initites India's first successful online testing platform" },
-    { year: "2012", icon: F2012, title: "Workshops",p:"Tathagat conducts 10 hours' marathon workshops to boost student performance. The growing needs of students see a tremendous push in their concept and confidence. These workshops have remained an integral part of Tathagat ever since" },
-    { year: "2015", icon:F2015 , title: "Recognition",p:"TathaGat is recognized as the No.1 Coaching institute for CAT and OMETS." },
-    { year: "2017", icon: F2017 , title:  "Online Education",p:"TathaGat ,already establised as the leading Coaching institute for CAT,starts offering Oline Coaching for managment Entrance tests." },
-    { year: "2020", icon: F2020, title:"Recognition",p:" India Today ranks TathaGat as the 6th Best Coaching institute in India."},
-    { year: "2022", icon:F2022, title:  "CUET/IPMAT",p:"TathaGat opens another division to cater to Students preparing for CUET and IPMAT."},
-    { year: "2025", icon: now , title: "Recognition",p:" WACC recognizes TathaGat as No.1 Coaching Institute for CAT by Shiksha Coach."  },
+    { year: "2007", icon: F2007, title: "Inception",p:"Rajat and kumar pioneer India's first coaching institute with a single-minded focuson personalized mentoring and result.WebMok also initites India's first successful online testing platform" },
+    { year: "2012", icon: F2012, title: "Workshops",p:"WebMok conducts 10 hours' marathon workshops to boost student performance. The growing needs of students see a tremendous push in their concept and confidence. These workshops have remained an integral part of WebMok ever since" },
+    { year: "2015", icon:F2015 , title: "Recognition",p:"WebMok is recognized as the No.1 Coaching institute for CAT and OMETS." },
+    { year: "2017", icon: F2017 , title:  "Online Education",p:"WebMok ,already establised as the leading Coaching institute for CAT,starts offering Oline Coaching for managment Entrance tests." },
+    { year: "2020", icon: F2020, title:"Recognition",p:" India Today ranks WebMok as the 6th Best Coaching institute in India."},
+    { year: "2022", icon:F2022, title:  "CUET/IPMAT",p:"WebMok opens another division to cater to Students preparing for CUET and IPMAT."},
+    { year: "2025", icon: now , title: "Recognition",p:" WACC recognizes WebMok as No.1 Coaching Institute for CAT by Shiksha Coach."  },
   ];
 
 const teamData = [
@@ -202,7 +202,7 @@ const AboutUs = () => {
               <span className="ta-highlight">Thinkers for Top B-Schools</span>
             </h1>
             <p className="ta-subtext">
-              Join the TathaGat community — where serious aspirants become successful achievers
+              Join the WebMok community — where serious aspirants become successful achievers
             </p>
 
             <ul className="ta-bullets">
@@ -234,7 +234,7 @@ const AboutUs = () => {
 
         <div className="story-gridOne">
           <div className="story-box lavenderOne">
-            Founded in 2007, TathaGat began with a simple yet powerful idea: to make entrance exam
+            Founded in 2007, WebMok began with a simple yet powerful idea: to make entrance exam
             preparation smarter, sharper, and more meaningful. At a time when rote learning dominated the coaching industry, we introduced a new way—focused on logic, strategy, and student-centric mentoring. With small batch sizes, we ensured every student received the attention they needed, encouraging critical thinking over cramming.
           </div>
           <LazyImage src={Fame2} alt="Wall of Fame 1" className="story-image" />
@@ -243,8 +243,8 @@ const AboutUs = () => {
         <div className="story-gridTwo">
           <LazyImage src={Fame1} alt="Wall of Fame 1" className="story-image" />
           <div className="story-box lavendertwo">
-            Over the years, TathaGat has helped thousands of aspirants secure seats in prestigious institutions like the IIMs, XLRI, FMS, and top international B-schools. What sets us apart is our deeply analytical approach, personalized guidance, and a genuine commitment to each student's growth—beyond just academics. <br />
-            At TathaGat, we believe in preparing students not just for exams—but for the challenges, decisions, and opportunities that lie ahead in life.
+            Over the years, WebMok has helped thousands of aspirants secure seats in prestigious institutions like the IIMs, XLRI, FMS, and top international B-schools. What sets us apart is our deeply analytical approach, personalized guidance, and a genuine commitment to each student's growth—beyond just academics. <br />
+            At WebMok, we believe in preparing students not just for exams—but for the challenges, decisions, and opportunities that lie ahead in life.
           </div>
         </div>
       </section>
@@ -290,7 +290,7 @@ const AboutUs = () => {
           </div>
           <div className="tt-team-description">
             <p>
-              At TathaGat, our mentors don’t just teach — they guide, support, and transform. With 99+ percentile scores and real test experience in CAT, GMAT, XAT, and SNAP, they offer one-on-one attention, clear concepts, and proven strategies to help you truly understand and succeed.
+              At WebMok, our mentors don’t just teach — they guide, support, and transform. With 99+ percentile scores and real test experience in CAT, GMAT, XAT, and SNAP, they offer one-on-one attention, clear concepts, and proven strategies to help you truly understand and succeed.
             </p>
           </div>
         </div>
@@ -336,7 +336,7 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="philosophy-text">
-              At TathaGat, we believe that true success in competitive exams—and in life—comes not from rote learning,
+              At WebMok, we believe that true success in competitive exams—and in life—comes not from rote learning,
               but from clarity of thought, logical reasoning, and smart problem-solving.
             </p>
           </div>
@@ -376,7 +376,7 @@ const AboutUs = () => {
             <div className="ta-support-text">
               <h4><span>24*7</span> Support</h4>
               <p>
-                TathaGat offers unlimited one-on-one doubt sessions, live class doubt resolution,
+                WebMok offers unlimited one-on-one doubt sessions, live class doubt resolution,
                 and round-the-clock assistance, ensuring no query goes unanswered. Expert mentors
                 provide continuous support, boosting confidence and enhancing problem-solving skills for exams.
               </p>
@@ -404,7 +404,7 @@ const AboutUs = () => {
         <h4 className="ta-testimonials-subtitle">TESTIMONIALS</h4>
         <h2 className="ta-testimonials-heading">Hear From Our Achievers</h2>
         <p className="ta-testimonials-description">
-          At TathaGat, we pride ourselves on our students’ success. Here’s what some of our top performers have to say about their journey with us:
+          At WebMok, we pride ourselves on our students’ success. Here’s what some of our top performers have to say about their journey with us:
         </p>
 
         <div className="ta-testimonials-slider">

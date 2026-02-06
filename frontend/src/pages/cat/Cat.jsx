@@ -244,14 +244,14 @@ const Cat = () => {
 
   const videosData = {
     all: [
-      { id: 1, title: "How to Prepare for CAT | Sumit | TathaGat", author: "Sumit (TathaGat)", url: "https://www.youtube.com/embed/9JIcatfLQ5k", description: "Sumit shares key strategies and study tips to crack CAT with TathaGat guidance." },
-      { id: 2, title: "How to crack IIM Ahmedabad | Ayush Kovind | TathaGat", author: "Ayush Kovind (TathaGat)", url: "https://www.youtube.com/embed/uENlBxSGf-Q", description: "Ayush Kovind reveals his approach to cracking IIM Ahmedabad with focused preparation." },
-      { id: 3, title: "How to crack ISB | Anshul Malik | TathaGat", author: "Anshul Malik (TathaGat)", url: "https://www.youtube.com/embed/OcJId_ai8uY", description: "Anshul Malik gives insights into clearing ISB with effective preparation strategies." },
-      { id: 4, title: "How to crack S. P. Jain | Aditya Dang | TathaGat", author: "Aditya Dang (TathaGat)", url: "https://www.youtube.com/embed/KybGz3L5R3A", description: "Aditya Dang shares his experience and tips on successfully cracking S. P. Jain." },
+      { id: 1, title: "How to Prepare for CAT | Sumit | WebMok", author: "Sumit (WebMok)", url: "https://www.youtube.com/embed/9JIcatfLQ5k", description: "Sumit shares key strategies and study tips to crack CAT with WebMok guidance." },
+      { id: 2, title: "How to crack IIM Ahmedabad | Ayush Kovind | WebMok", author: "Ayush Kovind (WebMok)", url: "https://www.youtube.com/embed/uENlBxSGf-Q", description: "Ayush Kovind reveals his approach to cracking IIM Ahmedabad with focused preparation." },
+      { id: 3, title: "How to crack ISB | Anshul Malik | WebMok", author: "Anshul Malik (WebMok)", url: "https://www.youtube.com/embed/OcJId_ai8uY", description: "Anshul Malik gives insights into clearing ISB with effective preparation strategies." },
+      { id: 4, title: "How to crack S. P. Jain | Aditya Dang | WebMok", author: "Aditya Dang (WebMok)", url: "https://www.youtube.com/embed/KybGz3L5R3A", description: "Aditya Dang shares his experience and tips on successfully cracking S. P. Jain." },
     ],
-    quant: [{ id: 1, title: "How to Prepare for CAT | Sumit | TathaGat", author: "Sumit (TathaGat)", url: "https://www.youtube.com/embed/9JIcatfLQ5k", description: "Sumit shares key strategies and study tips to crack CAT with TathaGat guidance." }],
-    varc: [{ id: 3, title: "How to crack ISB | Anshul Malik | TathaGat", author: "Anshul Malik (TathaGat)", url: "https://www.youtube.com/embed/OcJId_ai8uY", description: "Anshul Malik gives insights into clearing ISB with effective preparation strategies." }],
-    lrdi: [{ id: 4, title: "How to crack S. P. Jain | Aditya Dang | TathaGat", author: "Aditya Dang (TathaGat)", url: "https://www.youtube.com/embed/KybGz3L5R3A", description: "Aditya Dang shares his experience and tips on successfully cracking S. P. Jain." }],
+    quant: [{ id: 1, title: "How to Prepare for CAT | Sumit | WebMok", author: "Sumit (WebMok)", url: "https://www.youtube.com/embed/9JIcatfLQ5k", description: "Sumit shares key strategies and study tips to crack CAT with WebMok guidance." }],
+    varc: [{ id: 3, title: "How to crack ISB | Anshul Malik | WebMok", author: "Anshul Malik (WebMok)", url: "https://www.youtube.com/embed/OcJId_ai8uY", description: "Anshul Malik gives insights into clearing ISB with effective preparation strategies." }],
+    lrdi: [{ id: 4, title: "How to crack S. P. Jain | Aditya Dang | WebMok", author: "Aditya Dang (WebMok)", url: "https://www.youtube.com/embed/KybGz3L5R3A", description: "Aditya Dang shares his experience and tips on successfully cracking S. P. Jain." }],
   };
 
   const [category, setCategory] = useState("all");
@@ -430,7 +430,7 @@ const Cat = () => {
               <div className="tgw-whycat-text">
                 <h3>Why CAT matters</h3>
                 <p>
-                  Since 2007, TathaGat has helped thousands crack exams like CAT, XAT, GMAT, and SNAP with expert mentors, concept-focused learning, and personalized guidance in small batches.
+                  Since 2007, WebMok has helped thousands crack exams like CAT, XAT, GMAT, and SNAP with expert mentors, concept-focused learning, and personalized guidance in small batches.
                 </p>
                 <div className="tgw-tags">
                   <span>Gateway To Top B-Schools</span>
@@ -518,7 +518,7 @@ const Cat = () => {
             <div className="tgc-graph-area">
               <div className="tgc-graph-box">
                 <h4 className="tgc-graph-title">Score Graph for CAT Scorers</h4>
-                <p className="tgc-graph-subtitle">99+ percentilers from TathaGat</p>
+                <p className="tgc-graph-subtitle">99+ percentilers from WebMok</p>
                 <div className="tgcs-image-box">
                   <LazyLoadImage src={graph2} alt="Score Graph" className="tgcs-fixed-img" />
                 </div>
@@ -609,9 +609,9 @@ const Cat = () => {
                 <LazyLoadImage src={team} alt="Mentors" />
               </div>
               <div className="cat-trust-content">
-                <h3>Why Students Trust TathaGat</h3>
+                <h3>Why Students Trust WebMok</h3>
                 <p className="cat-trust-desc">
-                  Since 2007, TathaGat has helped thousands crack exams like CAT, XAT, GMAT, and SNAP with expert mentors, concept-focused learning, and personalized guidance in small batches.
+                  Since 2007, WebMok has helped thousands crack exams like CAT, XAT, GMAT, and SNAP with expert mentors, concept-focused learning, and personalized guidance in small batches.
                 </p>
                 <ul className="cat-benefits">
                   <li>🟡 Personalized Attention</li>
@@ -625,7 +625,7 @@ const Cat = () => {
                 <div className="cat-support-box">
                   <h4>24*7 Support</h4>
                   <p>
-                    TathaGat offers unlimited one-on-one doubt sessions, live class doubt resolution, and round-the-clock assistance, ensuring no query goes unanswered. Expert mentorship provides continuous support, boosting confidence and enhancing problem-solving skills for exams.
+                    WebMok offers unlimited one-on-one doubt sessions, live class doubt resolution, and round-the-clock assistance, ensuring no query goes unanswered. Expert mentorship provides continuous support, boosting confidence and enhancing problem-solving skills for exams.
                   </p>
                 </div>
               </div>
@@ -655,7 +655,7 @@ const Cat = () => {
             <div className="tgv-know-box">
               <h3 className="tgv-know-title">Know Us</h3>
               <p className="tgv-know-text">
-                <strong>TathaGat</strong> was established in 2007 by Rajat Tathagat with a vision to revolutionize MBA entrance exam preparation. With a student-first approach, TathaGat focuses on concept clarity, rigorous practice, and personalized mentoring to help aspirants achieve 99+ percentiles. Over the years, it has built a reputation for innovative pedagogy, expert faculty, and exceptional success rates.
+                <strong>WebMok</strong> was established in 2007 by Rajat WebMok with a vision to revolutionize MBA entrance exam preparation. With a student-first approach, WebMok focuses on concept clarity, rigorous practice, and personalized mentoring to help aspirants achieve 99+ percentiles. Over the years, it has built a reputation for innovative pedagogy, expert faculty, and exceptional success rates.
               </p>
               <button className="tgv-about-btn"onClick={() => navigate("/AboutUs")}>About Us</button>
             </div>
@@ -665,7 +665,7 @@ const Cat = () => {
 
         <div id="graph">
           <div className="tgt-growth-wrapper">
-            <LazyLoadImage src={graph} alt="TathaGat Growth Chart" className="tgt-growth-img" />
+            <LazyLoadImage src={graph} alt="WebMok Growth Chart" className="tgt-growth-img" />
           </div>
 
           <div className="tgi-iim-table-container">

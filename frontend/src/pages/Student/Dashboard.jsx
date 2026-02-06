@@ -42,7 +42,7 @@ import {
   FiPhone,
 } from "react-icons/fi";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
-import logo from "../../images/tgLOGO.png";
+import logo from "../../images/webm.png";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import {

@@ -406,11 +406,11 @@ const CourseDetails = () => {
         </div>
       </div>
 
-      <div className="tgj-journey-wrapper">
+      {/* <div className="tgj-journey-wrapper">
         <div className="tgj-journey-start">
           <img src={journeyStartImg} alt="Start" />
         </div>
-      </div>
+      </div> */}
 
       <CourseComprasion />
 

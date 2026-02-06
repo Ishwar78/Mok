@@ -3,9 +3,11 @@ const jwt = require("jsonwebtoken");
 /* ===== Helper ===== */
 const verifyToken = (req) => {
   const authHeader = req.headers.authorization || req.header("Authorization");
+
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     throw new Error("Token missing");
   }
+
   const token = authHeader.split(" ")[1];
   return jwt.verify(token, process.env.JWT_SECRET);
 };
@@ -14,7 +16,7 @@ const verifyToken = (req) => {
 const optionalAuth = (req, res, next) => {
   try {
     req.user = verifyToken(req);
-  } catch {
+  } catch (err) {
     req.user = null;
   }
   next();
@@ -25,22 +27,33 @@ const authMiddleware = (req, res, next) => {
   try {
     req.user = verifyToken(req);
     next();
-  } catch {
+  } catch (err) {
     req.user = null;
     next();
   }
 };
 
-/* ===== ADMIN / SUBADMIN ===== */
+/* ===== ADMIN / SUBADMIN / SUPERADMIN ===== */
 const adminAuth = (req, res, next) => {
   try {
     const decoded = verifyToken(req);
-    if (!["admin", "subadmin"].includes(decoded.role)) {
+
+    const allowedRoles = [
+      "admin",
+      "subadmin",
+      "superadmin",
+      "ADMIN",
+      "SUPERADMIN"
+    ];
+
+    if (!decoded.role || !allowedRoles.includes(decoded.role)) {
       return res.status(403).json({ message: "Access denied" });
     }
+
     req.user = decoded;
     next();
-  } catch {
+  } catch (err) {
+    console.error("adminAuth error:", err.message);
     return res.status(401).json({ message: "Unauthorized" });
   }
 };
