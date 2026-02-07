@@ -25,7 +25,7 @@ import {
   FaImages,
   FaUserCog
 } from "react-icons/fa";
-import logo from "../../../images/tgLOGO.png";
+import logo from "../../../images/webm.png";
 import "./AdminSidebar.css";
 
 const AdminSidebar = () => {

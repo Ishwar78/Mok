@@ -12,7 +12,7 @@ exports.sendEmailOtp = async (req, res) => {
 
     // Generate 6-digit OTP
     const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-
+ 
     // Development mode: skip database operations but still send email
     if (process.env.NODE_ENV === 'development') {
       console.log(`🔥 DEV MODE: OTP for ${email} is ${otpCode}`);

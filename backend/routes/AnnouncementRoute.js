@@ -12,10 +12,10 @@ const {
   getAnnouncementStats
 } = require('../controllers/AnnouncementController');
 
-const { authMiddleware } = require('../middleware/authMiddleware');
-const { checkPermission } = require('../middleware/permissionMiddleware');
+const { authMiddleware, adminAuth } = require('../middleware/authMiddleware');
+const { checkPermission } = require('../middleware/permissionMiddleware'); // ❗ kept (not deleted)
 
-// Optional auth middleware for students (allows non-logged users to view public announcements)
+// ================= OPTIONAL AUTH (STUDENT) =================
 const optionalAuth = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization || req.header("Authorization");
@@ -23,7 +23,10 @@ const optionalAuth = (req, res, next) => {
       const token = authHeader.split(" ")[1];
       if (token && token !== 'null' && token !== 'undefined') {
         const jwt = require('jsonwebtoken');
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'test_secret_key_for_development');
+        const decoded = jwt.verify(
+          token,
+          process.env.JWT_SECRET || 'test_secret_key_for_development'
+        );
         req.user = decoded;
       }
     }
@@ -34,48 +37,51 @@ const optionalAuth = (req, res, next) => {
   }
 };
 
-// Public routes (for students)
+// ================= STUDENT / PUBLIC ROUTES =================
 router.get('/student', optionalAuth, getStudentAnnouncements);
 router.get('/student/:id', optionalAuth, getAnnouncementById);
 
-// Student authenticated routes
+// ================= STUDENT AUTH ROUTES =================
 router.post('/mark-read/:id', authMiddleware, markAsRead);
 
-// Admin routes (protected by auth and admin permission)
-router.post('/admin', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
-  upload.array('attachments', 5), 
+// ================= ADMIN ROUTES (FIXED) =================
+// ❌ authMiddleware + checkPermission removed from execution
+// ✅ adminAuth used
+
+router.post(
+  '/admin',
+  adminAuth,
+  upload.array('attachments', 5),
   createAnnouncement
 );
 
-router.get('/admin', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.get(
+  '/admin',
+  adminAuth,
   getAllAnnouncements
 );
 
-router.get('/admin/stats', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.get(
+  '/admin/stats',
+  adminAuth,
   getAnnouncementStats
 );
 
-router.get('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.get(
+  '/admin/:id',
+  adminAuth,
   getAnnouncementById
 );
 
-router.put('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.put(
+  '/admin/:id',
+  adminAuth,
   updateAnnouncement
 );
 
-router.delete('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.delete(
+  '/admin/:id',
+  adminAuth,
   deleteAnnouncement
 );
 

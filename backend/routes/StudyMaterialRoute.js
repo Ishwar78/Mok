@@ -12,10 +12,10 @@ const {
   getStudyMaterialById
 } = require('../controllers/StudyMaterialController');
 
-const { authMiddleware } = require('../middleware/authMiddleware');
-const { checkPermission } = require('../middleware/permissionMiddleware');
+const { authMiddleware, adminAuth } = require('../middleware/authMiddleware');
+const { checkPermission } = require('../middleware/permissionMiddleware'); // ❗ kept (not deleted)
 
-// Student routes (with optional auth for testing)
+// ================= OPTIONAL AUTH (STUDENT) =================
 const optionalAuth = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization || req.header("Authorization");
@@ -23,7 +23,10 @@ const optionalAuth = (req, res, next) => {
       const token = authHeader.split(" ")[1];
       if (token && token !== 'null' && token !== 'undefined') {
         const jwt = require('jsonwebtoken');
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'test_secret_key_for_development');
+        const decoded = jwt.verify(
+          token,
+          process.env.JWT_SECRET || 'test_secret_key_for_development'
+        );
         req.user = decoded;
       }
     }
@@ -34,40 +37,44 @@ const optionalAuth = (req, res, next) => {
   }
 };
 
+// ================= STUDENT ROUTES =================
 router.get('/student', optionalAuth, getStudentStudyMaterials);
 router.get('/download/:id', optionalAuth, downloadStudyMaterial);
 router.get('/view/:id', optionalAuth, viewStudyMaterial);
 router.get('/student/:id', optionalAuth, getStudyMaterialById);
 
-// Admin routes (protected by auth and admin permission)
-router.post('/admin/upload', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
-  upload.single('file'), 
+// ================= ADMIN ROUTES (FIXED) =================
+// ❌ authMiddleware + checkPermission removed from execution
+// ✅ adminAuth used (role-based)
+
+router.post(
+  '/admin/upload',
+  adminAuth,
+  upload.single('file'),
   uploadStudyMaterial
 );
 
-router.get('/admin', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.get(
+  '/admin',
+  adminAuth,
   getAllStudyMaterials
 );
 
-router.get('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.get(
+  '/admin/:id',
+  adminAuth,
   getStudyMaterialById
 );
 
-router.put('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.put(
+  '/admin/:id',
+  adminAuth,
   updateStudyMaterial
 );
 
-router.delete('/admin/:id', 
-  authMiddleware, 
-  checkPermission(['admin', 'sub-admin']), 
+router.delete(
+  '/admin/:id',
+  adminAuth,
   deleteStudyMaterial
 );
 
