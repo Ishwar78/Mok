@@ -16,7 +16,7 @@ const verifyToken = (req) => {
 const optionalAuth = (req, res, next) => {
   try {
     req.user = verifyToken(req);
-  } catch (err) {
+  } catch {
     req.user = null;
   }
   next();
@@ -26,14 +26,13 @@ const optionalAuth = (req, res, next) => {
 const authMiddleware = (req, res, next) => {
   try {
     req.user = verifyToken(req);
-    next();
-  } catch (err) {
+  } catch {
     req.user = null;
-    next();
   }
+  next();
 };
 
-/* ===== ADMIN / SUBADMIN / SUPERADMIN ===== */
+/* ===== ADMIN AUTH ===== */
 const adminAuth = (req, res, next) => {
   try {
     const decoded = verifyToken(req);
@@ -53,7 +52,6 @@ const adminAuth = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    console.error("adminAuth error:", err.message);
     return res.status(401).json({ message: "Unauthorized" });
   }
 };

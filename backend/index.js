@@ -123,6 +123,7 @@ app.use(mongoSanitize());
 app.use(express.json({ limit: "10mb" }));
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
+app.use("/api/admin", require("./routes/adminProfileRoutes"));
 
 /* -------------------- Optional Auth (safe fallback) -------------------- */
 let optionalAuth;

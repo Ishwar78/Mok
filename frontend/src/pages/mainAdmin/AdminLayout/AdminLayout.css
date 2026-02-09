@@ -1,14 +1,28 @@
 .admin-layout {
   display: flex;
   padding-top: 60px;
+  position: relative;     /* 🔥 IMPORTANT */
+  z-index: 1;              /* 🔥 IMPORTANT */
 }
 
 .admin-main {
   margin-left: 240px;
   padding: 24px;
   width: 100%;
+  position: relative;     /* 🔥 IMPORTANT */
+  z-index: 1;              /* 🔥 IMPORTANT */
+  overflow: visible;       /* 🔥 MOST IMPORTANT */
+}
+
+/* Sidebar ya topbar modal ke upar na aaye */
+.admin-sidebar,
+.admin-topbar {
+  z-index: 10;
 }
 
 @media (max-width: 1024px) {
-  .admin-main { margin-left: 72px; padding: 16px; }
+  .admin-main {
+    margin-left: 72px;
+    padding: 16px;
+  }
 }

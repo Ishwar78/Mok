@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  z-index: 1000;
   box-shadow: var(--admin-shadow-md);
   border-bottom: 1px solid var(--admin-border);
   border-radius: 0 0 var(--admin-radius-xl) var(--admin-radius-xl);
@@ -228,4 +227,7 @@
 
 @media (max-width: 768px) {
   .topbar-search { display: none; }
+}
+.admin-topbar {
+  z-index: 200; /* LOW */
 }

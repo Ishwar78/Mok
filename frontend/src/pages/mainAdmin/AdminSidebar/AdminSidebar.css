@@ -12,7 +12,7 @@
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   scrollbar-width: none;
-}
+} 
 
 .admin-sidebar::-webkit-scrollbar { display: none; }
 
@@ -52,4 +52,7 @@
   .admin-sidebar { width: 72px; }
   .admin-link { justify-content: center; padding: 10px; font-size: 0; }
   .admin-link .admin-icon { margin: 0; font-size: 20px; }
+}
+.admin-sidebar {
+  z-index: 100; /* LOW */
 }

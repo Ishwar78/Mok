@@ -12,7 +12,7 @@ const AdminLayout = ({ children }) => {
       <AdminThemeProvider />
       <AdminTopbar />
       <div className="admin-layout">
-        <AdminSidebar />
+        <AdminSidebar /> 
         <div className="admin-main">
           {children}
           <AdminThemeCheck />

@@ -254,7 +254,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
   padding: 20px;
 }
 
@@ -264,8 +264,9 @@
   padding: 24px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  z-index: 10000;   /* 🔥 ADD THIS */
 }
+
 
 .role-management .role-modal {
   width: 900px;
@@ -447,50 +448,6 @@
 
 
 
-/* ===== FIX: MODAL OVERLAY BLUR ISSUE ===== */
-
-/* Overlay sirf modal ke time hi active ho */
-.role-management .modal-overlay {
-  backdrop-filter: none !important;
-  filter: none !important;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-}
-
-/* Modal box proper visible */
-.role-management .modal {
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-/* Background content kabhi blur nahi hoga */
-.role-management,
-.role-management * {
-  filter: none !important;
-}
-
-/* Tab content always visible */
-.role-management .tab-content {
-  position: relative;
-  z-index: 2;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Table container fix */
-.role-management .table-container {
-  position: relative;
-  z-index: 2;
-  opacity: 1 !important;
-}
-
-/* Fix for accidental dim effect */
-.role-management .tabs,
-.role-management .section-header,
-.role-management .data-table {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
 
 
 
@@ -502,35 +459,18 @@
 
 
 
-.role-management {
-  padding: 24px;
-}
 
-/* ================= MODAL FINAL FIX ================= */
 
-.role-management .modal-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(0, 0, 0, 0.65) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 999999 !important;
-}
 
-.role-management .modal {
-  background: #1e293b;
-  padding: 24px;
-  border-radius: 14px;
-  z-index: 1000000 !important;
-  width: 500px;
-  max-width: 95%;
-}
 
-.role-management .role-modal {
-  width: 800px;
-}
 
-.role-management button {
-  cursor: pointer;
-}
+
+
+
+
+
+
+
+
+
+

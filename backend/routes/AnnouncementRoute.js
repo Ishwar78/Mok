@@ -1,5 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+
 const {
   upload,
   createAnnouncement,
@@ -10,79 +11,44 @@ const {
   deleteAnnouncement,
   getAnnouncementById,
   getAnnouncementStats
-} = require('../controllers/AnnouncementController');
+} = require("../controllers/AnnouncementController");
 
-const { authMiddleware, adminAuth } = require('../middleware/authMiddleware');
-const { checkPermission } = require('../middleware/permissionMiddleware'); // ❗ kept (not deleted)
+const { authMiddleware, adminAuth } = require("../middleware/authMiddleware");
 
-// ================= OPTIONAL AUTH (STUDENT) =================
+/* ================= OPTIONAL AUTH (STUDENT) ================= */
 const optionalAuth = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization || req.header("Authorization");
     if (authHeader && authHeader.startsWith("Bearer ")) {
       const token = authHeader.split(" ")[1];
-      if (token && token !== 'null' && token !== 'undefined') {
-        const jwt = require('jsonwebtoken');
-        const decoded = jwt.verify(
-          token,
-          process.env.JWT_SECRET || 'test_secret_key_for_development'
-        );
-        req.user = decoded;
+      if (token && token !== "null" && token !== "undefined") {
+        const jwt = require("jsonwebtoken");
+        req.user = jwt.verify(token, process.env.JWT_SECRET);
       }
     }
-    next();
-  } catch (error) {
-    console.log('⚠️ Optional auth failed, proceeding without user:', error.message);
-    next();
+  } catch (err) {
+    console.log("Optional auth failed:", err.message);
   }
+  next();
 };
 
-// ================= STUDENT / PUBLIC ROUTES =================
-router.get('/student', optionalAuth, getStudentAnnouncements);
-router.get('/student/:id', optionalAuth, getAnnouncementById);
+/* ================= STUDENT ROUTES ================= */
+router.get("/student", optionalAuth, getStudentAnnouncements);
+router.get("/student/:id", optionalAuth, getAnnouncementById);
+router.post("/mark-read/:id", authMiddleware, markAsRead);
 
-// ================= STUDENT AUTH ROUTES =================
-router.post('/mark-read/:id', authMiddleware, markAsRead);
-
-// ================= ADMIN ROUTES (FIXED) =================
-// ❌ authMiddleware + checkPermission removed from execution
-// ✅ adminAuth used
-
+/* ================= ADMIN ROUTES ================= */
 router.post(
-  '/admin',
+  "/admin",
   adminAuth,
-  upload.array('attachments', 5),
+  upload.array("attachments", 5),
   createAnnouncement
 );
 
-router.get(
-  '/admin',
-  adminAuth,
-  getAllAnnouncements
-);
-
-router.get(
-  '/admin/stats',
-  adminAuth,
-  getAnnouncementStats
-);
-
-router.get(
-  '/admin/:id',
-  adminAuth,
-  getAnnouncementById
-);
-
-router.put(
-  '/admin/:id',
-  adminAuth,
-  updateAnnouncement
-);
-
-router.delete(
-  '/admin/:id',
-  adminAuth,
-  deleteAnnouncement
-);
+router.get("/admin", adminAuth, getAllAnnouncements);
+router.get("/admin/stats", adminAuth, getAnnouncementStats);
+router.get("/admin/:id", adminAuth, getAnnouncementById);
+router.put("/admin/:id", adminAuth, updateAnnouncement);
+router.delete("/admin/:id", adminAuth, deleteAnnouncement);
 
 module.exports = router;

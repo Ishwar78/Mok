@@ -235,9 +235,9 @@ const CourseDetails = () => {
           </div>
           <div className="rajat-content">
             <h1>Rajat Kumar</h1>
-            <h3 className="rajat-title">An IIT Alumnus with 18+ Years of Excellence in CAT Training</h3>
+            <h3 className="rajat-title">An IT Alumnus with 8+ Years of Excellence in Digital Marketing Training</h3>
             <p>
-              With over 18 years of experience mentoring aspirants for CAT and other management exams, he
+              With over 18 years of experience mentoring aspirants for Digital Marketing and other management exams, he
               brings a rare blend of academic strength, progressive thinking, and entrepreneurial vision.
               His uncompromising focus on quality and student outcomes has been instrumental in establishing
              WebMok as one of the most trusted names in MBA test prep. Passionate about excellence, he
@@ -357,7 +357,7 @@ const CourseDetails = () => {
           <div className="tcp-timeline-content">
             <h5 className="tcp-Heading">December: XAT & Other OMETs Preparation</h5>
             <p className="tcp-description1">
-              With CAT done, we shift focus to XAT and other important exams.
+              With Digital Marketing  done, we shift focus to XAT and other important exams.
             </p>
             <div className="tcp-badge-group tcp-right-align">
               {[
@@ -421,10 +421,10 @@ const CourseDetails = () => {
           <div className="tc-card live">
             <h4>Live classes</h4>
             <ul>
-              <li>📌800 hrs of live classes</li>
+              <li>📌80 hrs of live classes</li>
               <li>📌Interactive doubt classes</li>
               <li>📌Concepts from basic to advance level</li>
-              <li>📌Classes on QA, VARC, LRDI, Vocab, CA & GK</li>
+              <li>📌Classes on Website,Marketing, Vocab, CA & GK</li>
             </ul>
           </div>
 
@@ -536,7 +536,7 @@ const CourseDetails = () => {
             <h4 className="philosophy-subtitle">Why Choose Us</h4>
             <h1 className="philosophy-heading">
               How WebMok Can Benefit <br />
-              you for IPMAT Prep
+              you for Digital Marketing Prep
             </h1>
           </div>
           <div>

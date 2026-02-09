@@ -5,31 +5,42 @@ const { adminAuth } = require("../middleware/authMiddleware");
 const { checkPermission } = require("../middleware/permissionMiddleware");
 const jwt = require("jsonwebtoken");
 
-/* ========================= LOGIN (NO AUTH HERE) ========================= */
+/* ========================= LOGIN (NO AUTH) ========================= */
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await AdminUser.findOne({ email: email.toLowerCase() }).populate("role");
+    const user = await AdminUser.findOne({
+      email: email.toLowerCase()
+    }).populate("role");
+
     if (!user) {
-      return res.status(401).json({ success: false, message: "Invalid email or password" });
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password"
+      });
     }
 
     if (user.status === "suspended") {
-      return res.status(403).json({ success: false, message: "Account suspended" });
+      return res.status(403).json({
+        success: false,
+        message: "Account suspended"
+      });
     }
 
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid email or password" });
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password"
+      });
     }
 
-    const permissions = await user.getEffectivePermissions();
-
+    /* ---------- JWT ---------- */
     const token = jwt.sign(
       {
         id: user._id,
-        role: user.userType === "superadmin" ? "admin" : "subadmin",
+        userType: user.userType,
         email: user.email,
         name: user.fullName
       },
@@ -45,27 +56,68 @@ router.post("/login", async (req, res) => {
         fullName: user.fullName,
         email: user.email,
         userType: user.userType,
-        status: user.status
+        status: user.status,
+        role: user.role
       },
-      permissions
+      permissions: user.role?.permissions || {}
     });
+
   } catch (err) {
     console.error("Admin login error:", err);
-    res.status(500).json({ success: false, message: "Login failed" });
+    res.status(500).json({
+      success: false,
+      message: "Login failed"
+    });
   }
 });
 
-/* ========================= PROTECTED ROUTES ========================= */
+/* ========================= GET ALL ADMIN USERS ========================= */
+router.get(
+  "/",
+  adminAuth,
+  checkPermission("roleManagement", "view"),
+  async (req, res) => {
+    try {
+      const users = await AdminUser.find()
+        .select("-password")
+        .populate("role");
 
-router.get("/", adminAuth, checkPermission("roleManagement", "view"), async (req, res) => {
-  const users = await AdminUser.find().select("-password");
-  res.json({ success: true, users });
-});
+      res.json({ success: true, users });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: "Failed to fetch users"
+      });
+    }
+  }
+);
 
+/* ========================= GET LOGGED-IN USER ========================= */
 router.get("/me", adminAuth, async (req, res) => {
-  const user = await AdminUser.findById(req.user.id).select("-password");
-  const permissions = await user.getEffectivePermissions();
-  res.json({ success: true, user, permissions });
+  try {
+    const user = await AdminUser.findById(req.user.id)
+      .select("-password")
+      .populate("role");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      });
+    }
+
+    res.json({
+      success: true,
+      user,
+      permissions: user.role?.permissions || {}
+    });
+  } catch (err) {
+    console.error("Fetch /me error:", err);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch profile"
+    });
+  }
 });
 
 module.exports = router;
