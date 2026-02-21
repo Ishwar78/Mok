@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
-import axios from "axios";
+import axios from "../../../utils/axiosConfig";
 import { FaPlus, FaEdit, FaTrash, FaUserShield, FaUsers, FaUserTag, FaCheck, FaTimes, FaSave, FaKey } from "react-icons/fa";
 import "./RoleManagement.css";
 

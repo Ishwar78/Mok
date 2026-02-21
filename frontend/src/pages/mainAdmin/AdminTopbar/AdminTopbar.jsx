@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../../utils/axiosConfig";
 import "./AdminTopbar.css";
 import { FaUser, FaSignOutAlt, FaCog, FaChevronDown } from "react-icons/fa";
 
@@ -14,7 +14,7 @@ const AdminTopbar = () => {
     const fetchAdmin = async () => {
       const token = localStorage.getItem("adminToken");
       if (!token) return;
-      
+
       try {
         const res = await axios.get("/api/admin/me", {
           headers: { Authorization: `Bearer ${token}` }
@@ -55,14 +55,14 @@ const AdminTopbar = () => {
       <div className="topbar-actions">
         <input type="text" className="topbar-search" placeholder="Search..." />
         <div className="topbar-profile-wrapper" ref={dropdownRef}>
-          <button 
+          <button
             className="topbar-profile-btn"
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
             {admin?.profilePic ? (
-              <img 
-                src={admin.profilePic} 
-                alt={admin.name || 'Admin'} 
+              <img
+                src={admin.profilePic}
+                alt={admin.name || 'Admin'}
                 className="topbar-avatar"
               />
             ) : (
@@ -78,9 +78,9 @@ const AdminTopbar = () => {
             <div className="topbar-dropdown">
               <div className="dropdown-header">
                 {admin?.profilePic ? (
-                  <img 
-                    src={admin.profilePic} 
-                    alt={admin.name || 'Admin'} 
+                  <img
+                    src={admin.profilePic}
+                    alt={admin.name || 'Admin'}
                     className="dropdown-avatar"
                   />
                 ) : (
@@ -95,7 +95,7 @@ const AdminTopbar = () => {
                 </div>
               </div>
               <div className="dropdown-divider"></div>
-              <button 
+              <button
                 className="dropdown-item"
                 onClick={() => {
                   setDropdownOpen(false);
@@ -104,7 +104,7 @@ const AdminTopbar = () => {
               >
                 <FaUser /> My Profile
               </button>
-              <button 
+              <button
                 className="dropdown-item"
                 onClick={() => {
                   setDropdownOpen(false);

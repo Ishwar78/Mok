@@ -51,16 +51,16 @@ const formatFileSize = (bytes) => {
 const createAnnouncement = async (req, res) => {
   try {
     console.log('📢 Creating new announcement:', req.body);
-    
-    const { 
-      title, 
-      content, 
-      type, 
-      priority, 
-      targetAudience, 
-      isPinned, 
-      expiryDate, 
-      tags 
+
+    const {
+      title,
+      content,
+      type,
+      priority,
+      targetAudience,
+      isPinned,
+      expiryDate,
+      tags
     } = req.body;
 
     // Process attachments if any
@@ -78,18 +78,16 @@ const createAnnouncement = async (req, res) => {
 
     const mongoose = require('mongoose');
 
-    // Ensure createdBy is a valid ObjectId; fallback to a dev admin id in non-prod
-    let createdById = null;
-    if (req.user && req.user.id) {
-      if (mongoose.Types.ObjectId.isValid(req.user.id)) {
-        createdById = req.user.id;
-      } else {
-        console.warn('Warning: req.user.id is not a valid ObjectId, using fallback dev admin id');
-        createdById = (process.env.NODE_ENV !== 'production') ? '507f1f77bcf86cd799439011' : null;
+    // Ensure createdBy is a valid ObjectId; fallback to a dev admin id
+    let createdById = '000000000000000000000000';
+    if (req.user) {
+      const uId = req.user.id || req.user._id || req.admin?.id;
+      if (uId && mongoose.Types.ObjectId.isValid(uId)) {
+        createdById = uId;
       }
     }
 
-    const announcement = new Announcement({
+    const payload = {
       title,
       content,
       type: type || 'general',
@@ -100,7 +98,9 @@ const createAnnouncement = async (req, res) => {
       createdBy: createdById,
       attachments,
       tags: tags ? tags.split(',').map(tag => tag.trim()) : []
-    });
+    };
+    console.log("🚀 DEBUG ANNOUNCEMENT CREATION payload:", payload);
+    const announcement = new Announcement(payload);
 
     await announcement.save();
 
@@ -108,7 +108,7 @@ const createAnnouncement = async (req, res) => {
     await announcement.populate('createdBy', 'name email');
 
     console.log('✅ Announcement created successfully:', announcement._id);
-    
+
     res.status(201).json({
       success: true,
       message: 'Announcement created successfully',
@@ -117,7 +117,7 @@ const createAnnouncement = async (req, res) => {
 
   } catch (error) {
     console.error('❌ Error creating announcement:', error);
-    
+
     // Delete uploaded files if database save fails
     if (req.files && req.files.length > 0) {
       req.files.forEach(file => {
@@ -126,7 +126,7 @@ const createAnnouncement = async (req, res) => {
         }
       });
     }
-    
+
     res.status(500).json({
       success: false,
       message: 'Error creating announcement',
@@ -139,27 +139,27 @@ const createAnnouncement = async (req, res) => {
 const getAllAnnouncements = async (req, res) => {
   try {
     console.log('📢 Get all announcements request');
-    
+
     const { page = 1, limit = 20, type, priority, targetAudience, search, isActive } = req.query;
-    
+
     let query = {};
-    
+
     if (type && type !== 'all') {
       query.type = type;
     }
-    
+
     if (priority && priority !== 'all') {
       query.priority = priority;
     }
-    
+
     if (targetAudience && targetAudience !== 'all') {
       query.targetAudience = targetAudience;
     }
-    
+
     if (typeof isActive !== 'undefined') {
       query.isActive = isActive === 'true';
     }
-    
+
     if (search) {
       query.$or = [
         { title: { $regex: search, $options: 'i' } },
@@ -177,7 +177,7 @@ const getAllAnnouncements = async (req, res) => {
     const total = await Announcement.countDocuments(query);
 
     console.log(`✅ Found ${announcements.length} announcements`);
-    
+
     res.status(200).json({
       success: true,
       data: announcements,
@@ -203,10 +203,10 @@ const getAllAnnouncements = async (req, res) => {
 const getStudentAnnouncements = async (req, res) => {
   try {
     console.log('👨‍🎓 Get student announcements request');
-    
+
     const { type, limit = 50 } = req.query;
     const userId = req.user ? req.user.id : null;
-    
+
     let query = {
       isActive: true,
       targetAudience: { $in: ['all', 'students'] },
@@ -215,7 +215,7 @@ const getStudentAnnouncements = async (req, res) => {
         { expiryDate: { $gt: new Date() } }
       ]
     };
-    
+
     if (type && type !== 'all') {
       query.type = type;
     }
@@ -229,7 +229,7 @@ const getStudentAnnouncements = async (req, res) => {
     // Add unread status for each announcement if user is logged in
     const announcementsWithReadStatus = announcements.map(announcement => {
       const announcementObj = announcement.toObject();
-      
+
       if (userId) {
         // Check if user has read this announcement
         Announcement.findById(announcement._id).then(fullAnnouncement => {
@@ -238,16 +238,16 @@ const getStudentAnnouncements = async (req, res) => {
       } else {
         announcementObj.isUnread = true; // Mark as unread for non-logged users
       }
-      
+
       // Add virtual fields
       announcementObj.timeAgo = announcement.timeAgo;
       announcementObj.formattedDate = announcement.formattedDate;
-      
+
       return announcementObj;
     });
 
     console.log(`✅ Found ${announcements.length} student announcements`);
-    
+
     res.status(200).json({
       success: true,
       data: announcementsWithReadStatus
@@ -268,11 +268,11 @@ const markAsRead = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.user.id;
-    
+
     console.log('👁️ Mark announcement as read:', id, 'by user:', userId);
-    
+
     const announcement = await Announcement.findById(id);
-    
+
     if (!announcement) {
       return res.status(404).json({
         success: false,
@@ -281,7 +281,7 @@ const markAsRead = async (req, res) => {
     }
 
     await announcement.markAsRead(userId);
-    
+
     res.status(200).json({
       success: true,
       message: 'Announcement marked as read'
@@ -302,11 +302,11 @@ const updateAnnouncement = async (req, res) => {
   try {
     const { id } = req.params;
     const updateData = req.body;
-    
+
     console.log('📝 Update announcement request for ID:', id);
-    
+
     const announcement = await Announcement.findById(id);
-    
+
     if (!announcement) {
       return res.status(404).json({
         success: false,
@@ -331,7 +331,7 @@ const updateAnnouncement = async (req, res) => {
     await announcement.populate('createdBy', 'name email');
 
     console.log('✅ Announcement updated successfully');
-    
+
     res.status(200).json({
       success: true,
       message: 'Announcement updated successfully',
@@ -353,9 +353,9 @@ const deleteAnnouncement = async (req, res) => {
   try {
     const { id } = req.params;
     console.log('🗑️ Delete announcement request for ID:', id);
-    
+
     const announcement = await Announcement.findById(id);
-    
+
     if (!announcement) {
       return res.status(404).json({
         success: false,
@@ -376,7 +376,7 @@ const deleteAnnouncement = async (req, res) => {
     await Announcement.findByIdAndDelete(id);
 
     console.log('✅ Announcement deleted successfully');
-    
+
     res.status(200).json({
       success: true,
       message: 'Announcement deleted successfully'
@@ -397,10 +397,10 @@ const getAnnouncementById = async (req, res) => {
   try {
     const { id } = req.params;
     console.log('📢 Get announcement by ID:', id);
-    
+
     const announcement = await Announcement.findById(id)
       .populate('createdBy', 'name email');
-    
+
     if (!announcement) {
       return res.status(404).json({
         success: false,
@@ -409,7 +409,7 @@ const getAnnouncementById = async (req, res) => {
     }
 
     console.log('✅ Announcement found');
-    
+
     res.status(200).json({
       success: true,
       data: announcement
@@ -429,7 +429,7 @@ const getAnnouncementById = async (req, res) => {
 const getAnnouncementStats = async (req, res) => {
   try {
     console.log('📊 Get announcement statistics');
-    
+
     const stats = await Announcement.aggregate([
       {
         $group: {
@@ -451,7 +451,7 @@ const getAnnouncementStats = async (req, res) => {
       { $group: { _id: '$priority', count: { $sum: 1 } } },
       { $sort: { count: -1 } }
     ]);
-    
+
     res.status(200).json({
       success: true,
       data: {
