@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./ourBlog.css";
 import ourBlogTwo from "../../images/ourBlogTwo.png";
 import ourBlogThree from "../../images/ourBlogThree.png";
-import ourTeam from "../../images/contactTeams.png";
+import ourTeam from "../../images/vector.jpg";
 import LazyImage from "../../components/LazyImage/LazyImage";
 import FAQ from "../../components/FAQ/FAQ";
 import { FaSearch, FaRegCalendarAlt } from "react-icons/fa";

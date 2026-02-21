@@ -12,7 +12,7 @@ import TouchOne from "../../images/TouchOne.png";
 
 import LazyImage from '../../components/LazyImage/LazyImage';
 
-import Team from "../../images/contactTeams.png";
+import Team from "../../images/141.jpg";
 
 
 
@@ -121,7 +121,7 @@ const GetInTouch = () => {
 
             <div className="tc-section">
               <h4 className="tc-label">Location</h4>
-              <p className="tc-text">106, 1st Floor, New Delhi House Connaught Place, New Delhi 110001</p>
+              <p className="tc-text">1st Floor, 129 L, Near by Power House, Model Town, Rohtak, Haryana 124001</p>
             </div>
 
             <div className="tc-section">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./FinalResource.css";
 
-import team from "../../images/contactTeams.png";
+import team from "../../images/Team/OIP.webp";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ExploreBlog from "../../components/ExploreBlog/ExploreBlog";

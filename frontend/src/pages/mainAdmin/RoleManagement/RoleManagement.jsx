@@ -422,8 +422,8 @@ const RoleManagement = () => {
         )}
 
         {showRoleModal && (
-          <div className="modal-overlay" onClick={() => setShowRoleModal(false)}>
-            <div className="modal role-modal" onClick={e => e.stopPropagation()}>
+          <div className="rm-overlay" onClick={() => setShowRoleModal(false)}>
+            <div className="rm-modal-box role-modal" onClick={e => e.stopPropagation()}>
               <h2>{editingRole ? "Edit Role" : "Create Role"}</h2>
               <div className="form-group">
                 <label>Role Name *</label>
@@ -469,8 +469,8 @@ const RoleManagement = () => {
         )}
 
         {showUserModal && (
-          <div className="modal-overlay" onClick={() => setShowUserModal(false)}>
-            <div className="modal user-modal" onClick={e => e.stopPropagation()}>
+          <div className="rm-overlay" onClick={() => setShowUserModal(false)}>
+            <div className="rm-modal-box user-modal" onClick={e => e.stopPropagation()}>
               <h2>{editingUser ? "Edit User" : "Create Admin User"}</h2>
               <div className="form-group">
                 <label>Full Name *</label>

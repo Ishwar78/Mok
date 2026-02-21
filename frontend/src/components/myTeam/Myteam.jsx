@@ -2,25 +2,25 @@ import React, { useRef, useState, useEffect } from "react";
 import "./Myteam.css";
 import { useNavigate } from "react-router-dom";
 
-import team1 from "../../images/Team/Rajat 5.png";
-import team2 from "../../images/Team/KumarSir.png";
-import team3 from "../../images/Team/Niraj-Sir.png";
-import team5 from "../../images/Team/Lydia.png";
+import team1 from "../../images/Team/OIP.webp";
+import team2 from "../../images/Team/OIP1.webp";
+import team3 from "../../images/Team/ui.jpg";
+import team5 from "../../images/Team/500.jpg";
 // import team6 from "../../images/Team/MANISH.jpg"; // (unused, removed)
-import team7 from "../../images/Team/Sneha-Malik.png";
-import team8 from "../../images/Team/AVINASH-removebg-preview.png";
-import team9 from "../../images/Team/MANISH-removebg-preview.png";
-import team01 from "../../images/Team/Sandeep (1).png";
+import team7 from "../../images/Team/uiuiwebp.webp";
+import team8 from "../../images/Team/ui.jpg";
+import team9 from "../../images/Team/OIP.webp";
+import team01 from "../../images/Team/OIP1.webp";
 
 const mentors = [
-  { name: "Rajat Kumar", role: "Founder & CEO", expertise: "Expts - Quant/LRDI", img: team1 },
-  { name: "Kumar Abhishek", role: "CMO & Co-Founder", expertise: "Expts - Quant/LRDI", img: team2 },
-  { name: "Neeraj Naiyar", role: "Founder & CEO", expertise: "Expts - Quant/LRDI", img: team3 },
-  { name: "Manish", role: "Quant Faculty", img: team9 },
-  { name: "Lydia", role: "Head - Student Relation", img: team5 },
-  { name: "Avinash", role: "Quant Faculty", img: team8 },
-  { name: "Sneha Malik", role: "Student Relation", img: team7 },
-  { name: "Himanshu", role: "Student Relation", img: team01 },
+  { name: "RRRT", role: "Founder & CEO", expertise: "Expts - Web design & Marketing", img: team1 },
+  { name: "TTTYY", role: "Co-Founder", expertise: "Expts - Quant/LRDI", img: team2 },
+  { name: "UUIU", role: "", expertise: "Expts - Quant/LRDI", img: team3 },
+  { name: "YYTUT", role: "Marketing", img: team9 },
+  { name: "LERER", role: "Head - Student Relation", img: team5 },
+  { name: "ERFG", role: " Faculty", img: team8 },
+  { name: "HGJHG", role: "Student Relation", img: team7 },
+  { name: "GHNVB", role: "Student Relation", img: team01 },
 ];
 
 const Myteam = () => {

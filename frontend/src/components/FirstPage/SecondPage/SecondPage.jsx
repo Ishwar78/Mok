@@ -183,7 +183,8 @@ const SecondPage = () => {
               <button className="close-btn" onClick={() => setModalOpen(false)}>
                 &times;
               </button>
-              <h2>Send Us a Message</h2>
+             <h2 style={{ color: "red" }}>Send Us a Message</h2>
+
               <form className="join-form" onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
                 <input type="email" name="email" placeholder="Email" onChange={handleChange} required />

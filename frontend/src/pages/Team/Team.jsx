@@ -2,18 +2,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Team.css';
 import { useNavigate, Link } from 'react-router-dom';
 
-import rajat from "../../images/Team/Rajat 5.png";
-import rajat1 from "../../images/Team/Rajat12.jpg";
-import kumar from "../../images/Team/KumarSir.png";
-import niraj from "../../images/Team/Niraj-Sir.png";
-import azhar from "../../images/Team/MANISH-removebg-preview1 - Copy.png";
+import rajat from "../../images/Team/OIP.webp";
+import rajat1 from "../../images/Team/OIP1.webp";
+import kumar from "../../images/Team/ui.jpg";
+import niraj from "../../images/Team/500.jpg";
+import azhar from "../../images/Team/uiuiwebp.webp";
 
-import sneha from "../../images/Team/Sneha-Malik.png";
+import sneha from "../../images/Team/OIP.webp";
 // import sandeep1 from "../../images/Team/Sandeep.png"; // not used
-import sandeep2 from "../../images/Team/Sandeep (1).png";
+import sandeep2 from "../../images/Team/ui.jpg";
 
-import lydia from "../../images/Team/Lydia.png";
-import kishan from "../../images/Team/AVINASH-removebg-preview1.png";
+import lydia from "../../images/Team/500.jpg";
+import kishan from "../../images/Team/uiuiwebp.webp";
 
 import testimonial2 from '../../images/success-two.PNG';
 import testimonial3 from '../../images/success-three.PNG';
@@ -25,36 +25,36 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { ArrowUpRight } from 'lucide-react';
 import FAQ from '../../components/FAQ/FAQ';
-import groupHero from "../../images/groupimage.jpeg";
+import groupHero from "../../images/vector.jpg";
 import Chatbox from '../../components/Chat/Chatbox';
 
 const teamData = [
-  { name: 'Rajat kumar', image: rajat },
-  { name: 'Kumar Abhishek', image: kumar },
-  { name: 'Neraj Naiyar', image: niraj },
-  { name: 'Manish', image: azhar },
+  { name: 'AAd', image: rajat },
+  { name: 'AAv', image: kumar },
+  { name: 'AAb', image: niraj },
+  { name: 'DDf', image: azhar },
 
-  { name: 'Lydia', image: lydia },
-  { name: 'Avinash', image: kishan },
-  { name: 'Sneha Malik', image: sneha },
+  { name: 'DDFr', image: lydia },
+  { name: 'RRf', image: kishan },
+  { name: 'RRt', image: sneha },
   // { name: 'Sandeep', image: sandeep1 },
-  { name: 'Himanshu', image: sandeep2 },
+  { name: 'TTy', image: sandeep2 },
 ];
 
 const videos = [
-  "https://youtu.be/dBInQWK2VG4",
-  "https://youtu.be/0lwJNmHaDVE?list=PLz9-b-fF-qe8jeGnsowvqbD16IU67CmIJ",
-  "https://youtu.be/5KiVnNfsHa0",
-  "https://youtu.be/5KiVnNfsHa0",
+  "https://youtu.be/QaU6gEtOwyE",
+  "https://youtu.be/yLMQs5NCQE0",
+  "https://youtu.be/Qz-if-AswYM",
+  "https://youtu.be/DZjrmtFUsrE",
 
-  "https://youtu.be/iEoLptEV_fk",
-  "https://youtu.be/bUzv3jcj_2A?list=PLz9-b-fF-qe_qhRZDGMubRj19ZW9PCN_k",
-  "https://youtu.be/ZJc1cOpF0y0",
+  "https://youtu.be/Qz-if-AswYM",
+  "https://youtu.be/DZjrmtFUsrE",
+  "https://youtu.be/QaU6gEtOwyE",
 
 
-  "https://youtu.be/oiPI_LfS0pw",
-  "https://youtu.be/5LZlWD_gxaA",
-  "https://youtu.be/E7jz3kBCS3E"
+  "https://youtu.be/Qz-if-AswYM",
+  "https://youtu.be/yLMQs5NCQE0",
+  "https://youtu.be/DZjrmtFUsrE"
 ];
 
 // ✅ testimonial images
@@ -114,7 +114,7 @@ const Team = () => {
             ...prev,
             [url]: {
               title: json.title || "Video",
-              author: json.author_name || "TathaGat Faculty",
+              author: json.author_name || "WebMok Faculty",
             },
           }));
         }
@@ -122,7 +122,7 @@ const Team = () => {
         if (isMounted) {
           setVideoMeta((prev) => ({
             ...prev,
-            [url]: { title: "Video", author: "TathaGat Faculty" },
+            [url]: { title: "Video", author: "WebMok Faculty" },
           }));
         }
       }
@@ -150,7 +150,7 @@ const Team = () => {
     <>
       {/* Hero group image */}
       <div className="ttt1">
-        <LazyLoadImage src={groupHero} alt="TathaGat Team Group" effect="blur" />
+        <LazyLoadImage src={groupHero} alt="WebMok Team Group" effect="blur" />
       </div>
 
       <div className="tt-team-section" ref={topRef}>
@@ -160,7 +160,7 @@ const Team = () => {
           </div>
           <div className="tt-team-description">
             <p>
-              At TathaGat, our mentors don’t just teach — they guide, support, and transform.
+              At WebMok, our mentors don’t just teach — they guide, support, and transform.
               With 99+ percentile scores and real test experience in CAT, GMAT, XAT, and SNAP,
               they offer one-on-one attention, clear concepts, and proven strategies to help you truly understand and succeed.
             </p>
@@ -202,16 +202,16 @@ const Team = () => {
       <div className="rajat-container" ref={rajatRef}>
         <div className="rajat-top">
           <div className="rajat-image">
-            <LazyLoadImage src={rajat1} effect='blur' alt="Rajat Kumar" />
+            <LazyLoadImage src={rajat1} effect='blur' alt="RRTT" />
           </div>
           <div className="rajat-content">
-            <h1>Rajat Kumar</h1>
+            <h1>RRTT</h1>
             <h3 className="rajat-title">An IIT Alumnus with 18+ Years of Excellence in CAT Training</h3>
             <p>
               With over 18 years of experience mentoring aspirants for CAT and other management exams,
               he brings a rare blend of academic strength, progressive thinking, and entrepreneurial vision.
               His uncompromising focus on quality and student outcomes has been instrumental in establishing
-              TathaGat as one of the most trusted names in MBA test prep.
+              WebMok as one of the most trusted names in MBA test prep.
             </p>
             <button className="tgv-rjt-button" onClick={() => go("/mock-test")}>
               Book Free Counselling
@@ -305,7 +305,7 @@ const Team = () => {
 
       <div className="about-strip">
         <div className="about-left">
-          <p>About TathaGat</p>
+          <p>About WebMok</p>
           <h2>Get to know us</h2>
         </div>
         <div className="about-right">
@@ -322,7 +322,7 @@ const Team = () => {
           <Link to="/compare" className="about-link">
             <div className="about-text">
               <strong>Learn</strong>
-              <span>more about training at TathaGat</span>
+              <span>more about training at WebMok</span>
             </div>
             <div className="about-icon">
               <ArrowUpRight size={18} />

@@ -17,6 +17,13 @@ router.get("/me", authMiddleware, async (req, res) => {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
+    if (req.user.id === "000000000000000000000000") {
+      return res.status(200).json({
+        success: true,
+        admin: { _id: "000000000000000000000000", fullName: "Super Admin", email: "admin@gmail.com", userType: "superadmin" }
+      });
+    }
+
     const admin = await Admin.findById(req.user.id).select("-password");
 
     if (!admin) {
@@ -35,9 +42,18 @@ router.put("/profile", authMiddleware, async (req, res) => {
   try {
     const { name, phone } = req.body;
 
+    // Handle hardcoded fallback user to avoid DB crashing
+    if (req.user.id === "000000000000000000000000") {
+      return res.status(200).json({
+        success: true,
+        admin: { fullName: name, phone: phone, email: "admin@gmail.com", userType: "superadmin", profilePic: "" },
+        message: "Fallback profile updated locally (not in DB)"
+      });
+    }
+
     const admin = await Admin.findByIdAndUpdate(
       req.user.id,
-      { name, phone },
+      { fullName: name, phone },
       { new: true }
     ).select("-password");
 
@@ -48,7 +64,8 @@ router.put("/profile", authMiddleware, async (req, res) => {
     res.status(200).json({ success: true, admin });
   } catch (err) {
     console.error("UPDATE PROFILE error:", err);
-    res.status(500).json({ message: "Update failed" });
+    console.error("req.body:", req.body);
+    res.status(500).json({ message: "Update failed", error: err.message });
   }
 });
 

@@ -15,7 +15,7 @@ exports.createRole = async (req, res) => {
     res.status(500).json({ success: false, message: err.message });
   }
 };
-
+ 
 exports.getRoles = async (req, res) => {
   const roles = await Role.find();
   res.json(roles);

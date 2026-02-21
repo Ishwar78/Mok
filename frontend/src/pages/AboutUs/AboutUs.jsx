@@ -41,15 +41,15 @@ import footerFour from "../../images/footer4.png";
 
 
 
-import rajat from "../../images/Team/Rajat 5.png";
-import kumar from "../../images/Team/KumarSir.png"
-import niraj from "../../images/Team/Niraj-Sir.png"
-import kishan from "../../images/Team/AVINASH-removebg-preview1.png"
-import sneha from "../../images/Team/Sneha-Malik.png"
-import sandeep1 from "../../images/Team/Sandeep.png"
-import sandeep2 from "../../images/Team/Sandeep (1).png"
-import azhar from "../../images/Team/MANISH-removebg-preview1 - Copy.png"
-import lydia from "../../images/Team/Lydia.png"
+import rajat from "../../images/Team/OIP.webp";
+import kumar from "../../images/Team/OIP1.webp"
+import niraj from "../../images/Team/ui.jpg"
+import kishan from "../../images/Team/500.jpg"
+import sneha from "../../images/Team/uiuiwebp.webp"
+import sandeep1 from "../../images/Team/OIP.webp"
+import sandeep2 from "../../images/Team/uiuiwebp.webp"
+import azhar from "../../images/Team/ui.jpg"
+import lydia from "../../images/Team/OIP.webp"
 
 
 

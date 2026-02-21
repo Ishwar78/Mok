@@ -157,6 +157,7 @@
   color: rgba(255, 255, 255, 0.5);
   padding: 32px;
 }
+
 .role-management .btn-icon {
   background: rgba(255, 255, 255, 0.08);
   border: none;
@@ -244,7 +245,7 @@
   font-size: 13px;
 }
 
-.role-management .modal-overlay {
+.role-management .rm-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -254,17 +255,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 99998;
   padding: 20px;
 }
 
-.role-management .modal {
+.role-management .rm-modal-box {
   background: var(--admin-surface-2, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border-radius: 16px;
   padding: 24px;
   max-height: 90vh;
   overflow-y: auto;
-  z-index: 10000;   /* 🔥 ADD THIS */
+  position: relative;
+  z-index: 99999;
 }
 
 
@@ -423,54 +427,15 @@
   .role-management .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .role-management .perm-header,
   .role-management .perm-row {
     grid-template-columns: 120px repeat(6, 50px) 60px;
     font-size: 10px;
     padding: 8px;
   }
-  
+
   .role-management .tabs {
     flex-wrap: wrap;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

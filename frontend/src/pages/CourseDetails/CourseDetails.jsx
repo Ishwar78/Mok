@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./CourseDetails.css";
 import http from "../../utils/http";
 
-import rajat from "../../images/Team/Rajat12.jpg";
-import kumar from "../../images/Team/KumarSir.png";
-import niraj from "../../images/Team/Niraj-Sir.png";
+import rajat from "../../images/Team/OIP.webp";
+import kumar from "../../images/Team/OIP1.webp";
+import niraj from "../../images/Team/ui.jpg";
 import testimonial1 from "../../images/aa.PNG";
 import testimonial2 from "../../images/ab.PNG";
 import testimonial3 from "../../images/ac.PNG";

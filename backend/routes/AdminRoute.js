@@ -39,21 +39,8 @@ if (typeof adminUserController.changePassword === "function") {
 }
 
 /* ================== ROLE ROUTES ================== */
-if (typeof roleController?.createRole === "function") {
-  router.post("/roles", roleController.createRole);
-}
+// Removed: These are properly handled in roleRoutes.js
 
-if (typeof roleController?.getRoles === "function") {
-  router.get("/roles", roleController.getRoles);
-}
-
-if (typeof roleController?.updateRole === "function") {
-  router.put("/roles/:id", roleController.updateRole);
-}
-
-if (typeof roleController?.deleteRole === "function") {
-  router.delete("/roles/:id", roleController.deleteRole);
-}
 
 /* ================== ADMIN USER ROUTES ================== */
 if (typeof adminUserController.createAdminUser === "function") {

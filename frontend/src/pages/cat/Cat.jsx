@@ -13,13 +13,13 @@ import {
 import Mycourse from "../../components/MyCourses/Mycourse";
 import student4 from "../../images/image 38.png";
 
-import contactTeam from "../../images/contactTeams.png";
+import contactTeam from "../../images/Team/OIP1.webp";
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt } from "react-icons/fa";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-import team from "../../images/contactTeams.png";
+import team from "../../images/Team/OIP.webp";
 import graph from "../../images/graphTathgat.jpeg";
 import graph2 from "../../images/graphTathagat2.jpeg";
 import score from "../../images/ScoreCardThree.png";

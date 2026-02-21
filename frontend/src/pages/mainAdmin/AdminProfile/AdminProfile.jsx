@@ -41,7 +41,7 @@ const AdminProfile = () => {
       });
       setAdmin(res.data.admin);
       setEditData({
-        name: res.data.admin?.name || "",
+        name: res.data.admin?.fullName || "",
         phone: res.data.admin?.phone || "",
         email: res.data.admin?.email || "",
       });
@@ -60,7 +60,7 @@ const AdminProfile = () => {
   const handleEditToggle = () => {
     if (editMode && admin) {
       setEditData({
-        name: admin.name || "",
+        name: admin.fullName || "",
         phone: admin.phone || "",
         email: admin.email || "",
       });
@@ -182,7 +182,7 @@ const AdminProfile = () => {
             {editMode ? (
               <input name="name" value={editData.name} onChange={handleEditChange} />
             ) : (
-              <p>{admin?.name || "N/A"}</p>
+              <p>{admin?.fullName || "N/A"}</p>
             )}
 
             <label><FaEnvelope /> Email</label>
